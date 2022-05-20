@@ -1,0 +1,47 @@
+:root {
+    --height: calc(200 * 1fr);
+    --width: calc(200 * 1fr)
+}
+*{
+    transition: all 0.5s;
+}
+.area-card{
+    height: 200px;
+    width: 150px;
+}
+.area-card:hover .card {
+    transform: rotateY(180deg);
+}
+.card {
+    transform-style: preserve-3d;
+    position: relative;
+}
+.card-face{
+    height: 200px;
+    width: 150px;
+    border: 1px solid black;
+    display: flex;
+    align-items: center;
+    position: absolute;
+    backface-visibility: hidden;
+    
+}
+.front {
+    background: rgb(255,192,0);
+    background: radial-gradient(circle, rgba(255,192,0,1) 0%,
+                                        rgba(235,24,14,1) 50%, 
+                                        rgba(110,0,0,1) 100%);
+}
+.back {
+    transform: rotateY(180deg);
+    background: rgb(0,254,255);
+    background: radial-gradient(circle, rgba(0,254,255,1) 0%, 
+                                        rgba(28,14,235,1) 50%, 
+                                        rgba(0,8,110,1) 100%);
+}
+.card-image {
+    width: 100%;
+    height: auto;
+    background-size: cover;
+    background-position: center;
+}
