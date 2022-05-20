@@ -9,18 +9,41 @@ export class GameComponent implements OnInit {
 
   min: number = 1;
   max: number = 899;
-  lenght: number = 8;
+  pokemonLength: number = 0;
   pokemonList: number[] = [];
+
+  
 
   constructor() { }
 
   ngOnInit(): void {
+    
   }
 
   getRandomInt(min: number, max: number): any {
     return Math.floor(Math.random() * (max - min)) + min;
   }
+
+  getPokemonList(): void {
+    this.pokemonList = [];
+    for (let i = 0; i < this.pokemonLength; i++) {
+      this.pokemonList.push(this.getRandomInt(this.min, this.max));
+    }
+  }
+
+  getPokemon(pokemonLength: number){
+    this.pokemonLength = pokemonLength;
+    this.getPokemonList();
+  }
+
   
+
+  
+
+  
+  
+  
+
   // getPokemonList(): number[]{
   //   this.pokemonList = Array.from(this.lenght, () => this.getRandomInt(this.min, this.max));
   //   return this.pokemonList;

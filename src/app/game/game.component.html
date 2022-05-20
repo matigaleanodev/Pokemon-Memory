@@ -1,1 +1,16 @@
-<app-card></app-card>
+<main class="container">
+    <app-button 
+        [pokemonLength]="8"
+        (onClickEvent)="getPokemon($event)"
+        ></app-button>
+    <app-button 
+        [pokemonLength]="16"
+        (onClickEvent)="getPokemon($event)"
+        ></app-button>
+    <app-card
+    *ngFor="let pokemon of pokemonList"
+    [pokemon]="pokemon"
+></app-card>
+</main>
+
+        <!--  -->
