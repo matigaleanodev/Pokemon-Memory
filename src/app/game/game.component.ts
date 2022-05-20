@@ -11,6 +11,7 @@ export class GameComponent implements OnInit {
   max: number = 899;
   pokemonLength: number = 0;
   pokemonList: number[] = [];
+  gameStarted: boolean = false;
 
   
 
@@ -31,24 +32,10 @@ export class GameComponent implements OnInit {
     }
   }
 
-  getPokemon(pokemonLength: number){
+  getPokemon(pokemonLength: number): boolean{
     this.pokemonLength = pokemonLength;
     this.getPokemonList();
+    return this.gameStarted = true;
   }
-
-  
-
-  
-
-  
-  
-  
-
-  // getPokemonList(): number[]{
-  //   this.pokemonList = Array.from(this.lenght, () => this.getRandomInt(this.min, this.max));
-  //   return this.pokemonList;
-  // }
-    
-    
 
 }
