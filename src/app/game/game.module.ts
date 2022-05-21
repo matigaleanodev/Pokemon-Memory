@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { GameComponent } from './game.component';
 import { CardComponent } from './card/card.component';
 import { ButtonComponent } from './button/button.component';
+import { BoardComponent } from './board/board.component';
 
 
 
@@ -10,7 +11,8 @@ import { ButtonComponent } from './button/button.component';
   declarations: [
     GameComponent,
     CardComponent,
-    ButtonComponent
+    ButtonComponent,
+    BoardComponent
   ],
   imports: [
     CommonModule

@@ -1,23 +1,3 @@
 <main class="container">
-    <div class="row d-block botonera">
-        <app-button 
-            [pokemonLength]="8"
-            *ngIf="!gameStarted"
-            (onClickEvent)="getCards($event)"
-        ></app-button>
-        <app-button 
-            [pokemonLength]="16"
-            *ngIf="!gameStarted"
-            (onClickEvent)="getCards($event)"
-        ></app-button>
-    </div>
-    <div class="row tablero">
-        <app-card
-            *ngFor="let pokemon of pokemonList"
-            [pokemon]="pokemon"
-            class="col-6 col-sm-4 col-md-3 col-lg-2"
-        ></app-card>
-    </div>
+    <app-board></app-board>
 </main>
-
-        <!--  -->

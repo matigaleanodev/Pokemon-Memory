@@ -45,6 +45,12 @@
     background-size: cover;
     background-position: center;
 }
+.clicked {
+    transform: rotateY(180deg);
+}
+.disable {
+    display: none;
+}
 
 @keyframes gameStart {
     20%,90%{
