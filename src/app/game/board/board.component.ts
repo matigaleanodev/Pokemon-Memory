@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CardInfo } from '../interface';
 
 
 @Component({
@@ -15,7 +16,8 @@ export class BoardComponent implements OnInit {
   pokemonLength: number = 0; // cantidad de pokemons
   pokemonList: number[] = []; // lista de pokemones a aparecer
   gameStarted: boolean = false; 
-  flippedCard: number = 0;
+  flippedCards: number[] = [];
+  cardInfo: CardInfo[] = [];
 
   
   constructor(
@@ -41,18 +43,39 @@ export class BoardComponent implements OnInit {
     this.pokemonList = this.pokemonList.concat(this.pokemonList);
     this.pokemonList = this.shuffle(this.pokemonList);
   }
+  // funcion para generar informacion de las cartas
+  getCardInfo(){
+    for (let i in this.pokemonList) {
+      this.cardInfo.push({
+        id: this.pokemonList[i],
+        state: 'default'
+      });
+    }
+  }
   // funcion para generar las cartas
   getCards(pokemonLength: number): boolean{
     this.pokemonLength = pokemonLength;
     this.getPokemonList();
+    this.getCardInfo();
     return this.gameStarted = true;
   }
-  flipCard(id: number){
-    if (this.flippedCard === 0) {
-      this.flippedCard = id;
-    } else if (this.flippedCard != id){
-      this.flippedCard = 0;
-    }
+  // funcion para comparar las cartas
+  flipCard(index: number){
+    this.cardInfo[index].state = 'flipped';
+    setTimeout(() => {
+      if (this.flippedCards.length === 0) {
+        this.flippedCards.push(index);
+      } else if (this.flippedCards.length === 1 && this.cardInfo[this.flippedCards[0]].id === this.cardInfo[index].id){
+          this.cardInfo[index].state = 'matched';
+          this.cardInfo[this.flippedCards[0]].state = 'matched';
+          this.flippedCards = [];
+        } else {
+          this.cardInfo[this.flippedCards[0]].state = 'default';
+          this.cardInfo[index].state = 'default';
+          this.flippedCards = [];
+        }
+    } , 600);
   }
+  
 
 }

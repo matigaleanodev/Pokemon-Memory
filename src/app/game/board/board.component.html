@@ -12,11 +12,11 @@
 </div>
 <div class="row tablero">
     <app-card
-        *ngFor="let pokemon of pokemonList"
-        [pokemon]="pokemon"
-        [flippedCard]="flippedCard"
+        *ngFor="let pokemon of cardInfo"
+        [pokemon]="pokemon.id"
+        [state]="pokemon.state"
+        [id]="cardInfo.indexOf(pokemon)"
         class="col-6 col-sm-4 col-md-3 col-lg-2"
-        id="{{pokemon}}"
         (flip)="flipCard($event)"
     ></app-card>
 </div>
