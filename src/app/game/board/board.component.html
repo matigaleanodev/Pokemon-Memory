@@ -1,14 +1,10 @@
-<div class="row d-block botonera">
+<div class="row d-flex align-items-center justify-content-center botonera">
     <app-button 
-        [pokemonLength]="8"
+        [pokemonLength]="12"
         *ngIf="!gameStarted"
         (onClickEvent)="getCards($event)"
     ></app-button>
-    <app-button 
-        [pokemonLength]="16"
-        *ngIf="!gameStarted"
-        (onClickEvent)="getCards($event)"
-    ></app-button>
+    
 </div>
 <div class="row tablero">
     <app-card
