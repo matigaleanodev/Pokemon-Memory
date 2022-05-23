@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 
-import { CardData } from '../interface';
 
 @Component({
   selector: 'app-board',
@@ -15,9 +14,8 @@ export class BoardComponent implements OnInit {
   max: number = 899;
   pokemonLength: number = 0; // cantidad de pokemons
   pokemonList: number[] = []; // lista de pokemones a aparecer
-  pokemons: CardData[] = [];
-  flippedCards: CardData[] = []; // lista de cartas reveladas
   gameStarted: boolean = false; 
+  flippedCard: number = 0;
 
   
   constructor(
@@ -49,50 +47,12 @@ export class BoardComponent implements OnInit {
     this.getPokemonList();
     return this.gameStarted = true;
   }
-
-  setupPokemons(): void {
-    this.pokemons = [];
-    this.pokemonList.forEach((pokemon) => {
-      const cardData: CardData = {
-        pokemonId: pokemon,
-        state: 'default'
-      };
-      this.pokemons.push(cardData);
-    });
-  }
-
-  cardClicked(index: number): void {
-    const cardInfo = this.pokemons[index];
-    
-    if (cardInfo.state === 'default' && this.flippedCards.length < 2) {
-      cardInfo.state = 'flipped';
-      this.flippedCards.push(cardInfo);
-      if (this.flippedCards.length > 1) {
-        this.checkForCardMatch()
-      }
-    } else if (cardInfo.state === 'flipped') {
-      cardInfo.state = 'default';
-      this.flippedCards.pop();
-      }
-  }
-
-  checkForCardMatch(): void {
-    setTimeout(() => {
-      const cardOne = this.flippedCards[0];
-      const cardTwo = this.flippedCards[1];
-      const nextState = cardOne.pokemonId === cardTwo.pokemonId ? 'matched' : 'default';
-      cardOne.state = cardTwo.state = nextState;
-
-      this.flippedCards = [];
-
-      if (nextState === 'matched') {
-        this.matches++;
-
-        if (this.matches === this.pokemons.length) {
-          alert('You win!');
-        }
-      }
-    }, 1000);
+  flipCard(id: number){
+    if (this.flippedCard === 0) {
+      this.flippedCard = id;
+    } else if (this.flippedCard != id){
+      this.flippedCard = 0;
+    }
   }
 
 }

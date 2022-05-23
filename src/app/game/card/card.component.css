@@ -45,11 +45,12 @@
     background-size: cover;
     background-position: center;
 }
-.clicked {
+.flipped {
     transform: rotateY(180deg);
 }
-.disable {
-    display: none;
+.matched {
+    transform: rotateY(180deg);
+    visibility: hidden;
 }
 
 @keyframes gameStart {

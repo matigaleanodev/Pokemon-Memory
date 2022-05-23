@@ -1,41 +1,18 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import { trigger, state, style, transition, animate } from '@angular/animations';
 
-import { CardData } from '../interface';
+
 
 @Component({
   selector: 'app-card',
   templateUrl: './card.component.html',
-  styleUrls: ['./card.component.css'],
-  animations: [
-    trigger('cardFlip', [
-      state('default', style({
-        transform: 'none',
-      })),
-      state('flipped', style({
-        transform: 'perspective(600px) rotateY(180deg)'
-      })),
-      state('matched', style({
-        visibility: 'false',
-        transform: 'scale(0.05)',
-        opacity: 0
-      })),
-      transition('default => flipped', [
-        animate('400ms')
-      ]),
-      transition('flipped => default', [
-        animate('400ms')
-      ]),
-      transition('* => matched', [
-        animate('400ms')
-      ])
-    ])
-  ]
+  styleUrls: ['./card.component.css']
 })
 export class CardComponent implements OnInit {
 
   @Input() pokemon: number = 0;
-  @Output() cardClicked = new EventEmitter();
+  @Input() flippedCard: number = 0;
+  @Input() state = 'default';
+  @Output() flip = new EventEmitter<number>();
 
   constructor(
   ) {
@@ -45,8 +22,30 @@ export class CardComponent implements OnInit {
   ngOnInit(): void {
   }
   
-  onSelected(): void {
+  onClick(): void { 
+    if (this.state === 'default') {
+    this.state = 'flipped';
+    this.flip.emit(this.pokemon);
+    this.compareCards(this.pokemon);
+    this.removeFlip();
+    }
   }
-
-  
+  removeFlip(){
+    if (this.state == 'default'){
+      document.getElementById(this.pokemon.toString())?.classList.remove('flipped');
+    }
+  }
+  compareCards(id: number){
+    if (this.flippedCard === 0) {
+      this.flippedCard = id;
+    } else if (this.flippedCard != id) {
+      if (this.state === 'flipped') {
+        this.state = 'default';
+      }
+      this.flippedCard = 0;    
+    } else {
+      this.state = 'matched';  
+    }
+  }
 }
+
