@@ -54,6 +54,8 @@ export class BoardComponent implements OnInit {
   }
   // funcion para generar las cartas
   getCards(pokemonLength: number): boolean{
+    this.pokemonList = [];
+    this.cardInfo = [];
     this.pokemonLength = pokemonLength;
     this.getPokemonList();
     this.getCardInfo();

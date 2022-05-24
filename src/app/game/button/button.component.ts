@@ -8,6 +8,7 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 export class ButtonComponent implements OnInit {
 
   @Input() pokemonLength: number = 0;
+  @Input() text: string = '';
   @Output() onClickEvent = new EventEmitter<number>();
 
   constructor() { }

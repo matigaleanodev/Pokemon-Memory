@@ -1,15 +1,15 @@
-<div class="area-card">
+<div class="area-card d-flex align-items-center justify-content-center h-100 w-100">
     <div 
         class="card" 
         id="{{this.id}}"
         [ngClass]="{'flipped': this.state == 'flipped', 'matched': this.state == 'matched'}"
         (click)="onClick()"
         >
-        <div class="card-face back">
-            <img class="card-image" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/{{this.pokemon}}.png" alt="pokemon">
+        <div class="card-face back d-flex align-items-center justify-content-center h-100 w-100">
+            <img class="img-fluid w-75" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/{{this.pokemon}}.png" alt="pokemon">
         </div>
-        <div class="card-face front">
-            <img class="card-image" src="assets/images/pokeball.png" alt="Pokeball">
+        <div class="card-face front d-flex align-items-center justify-content-center h-100 w-100">
+            <img class="img-fluid w-75" src="assets/images/pokeball.png" alt="Pokeball">
         </div>
     </div>
 </div>

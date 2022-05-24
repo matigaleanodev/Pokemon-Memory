@@ -1,27 +1,17 @@
-:root {
-    --height: calc(200 * 1fr);
-    --width: calc(200 * 1fr)
-}
+
 *{
     transition: all 0.5s;
 }
-.area-card{
-    height: 200px;
-    width: 150px;
-}
 .card {
+    height: 95%;
+    width: 75%;
     transform-style: preserve-3d;
     position: relative;
     cursor: pointer;
     animation: gameStart 3s;
 }
 .card-face{
-    height: 200px;
-    width: 150px;
     border: 1px solid black;
-    display: flex;
-    align-items: center;
-    justify-content: center;
     position: absolute;
     backface-visibility: hidden;
     box-shadow: inset 0 0 0 5px #fff;    
@@ -39,18 +29,11 @@
                                         rgba(28,14,235,1) 50%, 
                                         rgba(0,8,110,1) 100%);
 }
-.card-image {
-    width: 85%;
-    height: auto;
-    background-size: cover;
-    background-position: center;
-}
 .flipped {
     transform: rotateY(180deg);
 }
 .matched {
-    transform: rotateY(180deg);
-    visibility: hidden;
+    opacity: 0;
 }
 
 @keyframes gameStart {
