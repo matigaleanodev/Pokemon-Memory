@@ -5,6 +5,7 @@ import { CardComponent } from './card/card.component';
 import { ButtonComponent } from './button/button.component';
 import { BoardComponent } from './board/board.component';
 import { ScoreComponent } from './score/score.component';
+import { StartScreenComponent } from './start-screen/start-screen.component';
 
 
 
@@ -14,7 +15,8 @@ import { ScoreComponent } from './score/score.component';
     CardComponent,
     ButtonComponent,
     BoardComponent,
-    ScoreComponent
+    ScoreComponent,
+    StartScreenComponent
   ],
   imports: [
     CommonModule

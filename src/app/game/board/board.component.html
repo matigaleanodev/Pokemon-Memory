@@ -1,26 +1,9 @@
 <main class="container-fluid">
-    <div class="card" *ngIf="!this.gameStarted">
-        <audio autoplay src="assets/audios/title-screen.mp3"></audio>
-        <div class="card-body vh-100">
-            <div class="row d-flex align-items-center justify-content-center">
-                <div class="col-12 col-md-4">
-                    <img 
-                        class="img-fluid" 
-                        src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/{{this.pokemonScreen}}.png" 
-                        alt="Pokeball">
-                </div>
-                <div class="col-12">
-                    <h1 class="text-center">Pokemon Memory</h1>
-                </div>
-                <app-button 
-                        class="col-6 mt-auto"
-                        [pokemonLength]="12"
-                        [text]="this.gameStarted ? 'Reiniciar' : 'Iniciar'"
-                        (onClickEvent)="getCards($event)"
-                    ></app-button>
-            </div>
-        </div>
-    </div>
+    <app-start-screen  
+        *ngIf="!this.gameStarted"
+        (startGameEvent)="getCards($event)"
+        [pokemonScreen]="this.pokemonScreen"
+        ></app-start-screen>
     <div 
         class="row pt-2"
         *ngIf="this.gameStarted"

@@ -1,0 +1,22 @@
+<div class="card">
+    <audio autoplay src="assets/audios/title-screen.mp3"></audio>
+    <div class="card-body vh-100">
+        <div class="row d-flex align-items-center justify-content-center">
+            <div class="col-12 col-md-4">
+                <img 
+                    class="img-fluid" 
+                    src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/{{this.pokemonScreen}}.png" 
+                    alt="Pokeball">
+            </div>
+            <div class="col-12">
+                <h1 class="text-center">Pokemon Memory</h1>
+            </div>
+            <app-button 
+                    class="col-6 mt-auto"
+                    [pokemonLength]="12"
+                    [text]="'Iniciar'"
+                    (onClickEvent)="startGame($event)"
+                ></app-button>
+        </div>
+    </div>
+</div>
