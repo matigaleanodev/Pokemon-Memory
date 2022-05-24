@@ -4,6 +4,7 @@ import { GameComponent } from './game.component';
 import { CardComponent } from './card/card.component';
 import { ButtonComponent } from './button/button.component';
 import { BoardComponent } from './board/board.component';
+import { ScoreComponent } from './score/score.component';
 
 
 
@@ -12,7 +13,8 @@ import { BoardComponent } from './board/board.component';
     GameComponent,
     CardComponent,
     ButtonComponent,
-    BoardComponent
+    BoardComponent,
+    ScoreComponent
   ],
   imports: [
     CommonModule

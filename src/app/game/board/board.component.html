@@ -1,18 +1,19 @@
-<div class="row d-flex align-items-center justify-content-center botonera">
-    <app-button 
+<div class="vh-100">
+    <div class="row d-flex align-items-center justify-content-center botonera">
+        <app-button 
         [pokemonLength]="12"
         *ngIf="!gameStarted"
         (onClickEvent)="getCards($event)"
-    ></app-button>
-    
-</div>
-<div class="row tablero">
-    <app-card
+        ></app-button>   
+    </div>
+    <div class="row tablero">
+        <app-card
         *ngFor="let pokemon of cardInfo"
         [pokemon]="pokemon.id"
         [state]="pokemon.state"
         [id]="cardInfo.indexOf(pokemon)"
         class="col-6 col-sm-4 col-md-3 col-lg-2"
         (flip)="flipCard($event)"
-    ></app-card>
+        ></app-card>
+    </div>
 </div>
