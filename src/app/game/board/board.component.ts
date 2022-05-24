@@ -13,6 +13,7 @@ export class BoardComponent implements OnInit {
   matches: number = 0;
   min: number = 1;
   max: number = 899;
+  pokemonScreen: number = 0;
   pokemonLength: number = 0; // cantidad de pokemons
   pokemonList: number[] = []; // lista de pokemones a aparecer
   gameStarted: boolean = false; 
@@ -24,6 +25,7 @@ export class BoardComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    this.pokemonScreen = this.getRandomInt(1, 152);
   }
   // funcion para generar numeros aleatorios
   getRandomInt(min: number, max: number): any {
