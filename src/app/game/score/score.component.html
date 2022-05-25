@@ -1,13 +1,23 @@
-<div class="d-flex row h-100 w-100 m-0 align-items-center justify-content-center gap-1">
-    <div class="col-10 score">
-        <p class="text-center w-100 pt-3">Tiempo <br> <app-countdown></app-countdown> </p>
-    </div>
-    <div class="col-6 score">
-        <p class="text-center fs-5 w-100 pt-3">Movimientos<br>{{this.movements}}
+<div class="d-flex row h-100 w-100 align-items-center justify-content-center">
+    <div class="col-10 p-2 mt-1 mt-md-5 score">
+        <p class="text-center pt-1 w-100">
+            Tiempo
+            <br>
+            <fa-icon [icon]="faClock"></fa-icon>&nbsp;<app-countdown></app-countdown> 
         </p>
     </div>
-    <div class="col-4 score">
-        <p class="text-center fs-5 w-100 pt-3">Aciertos <br>{{this.matches}}
+    <div class="col-6 p-2 mt-1 mt-md-5 score">
+        <p class="text-center pt-1 w-100">
+            Movimientos
+            <br>
+            <fa-icon [icon]="faHandPointer"></fa-icon>&nbsp;{{this.movements}}
+        </p>
+    </div>
+    <div class="col-4 p-2 mt-1 mt-md-5 score">
+        <p class="text-center pt-1 w-100">
+            Aciertos
+            <br>
+            <fa-icon [icon]="faStar"></fa-icon>&nbsp;{{this.matches}}
 
         </p>
     </div>

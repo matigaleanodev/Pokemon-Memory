@@ -1,4 +1,5 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { faGamepad } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-button',
@@ -10,6 +11,8 @@ export class ButtonComponent implements OnInit {
   @Input() pokemonLength: number = 0;
   @Input() text: string = '';
   @Output() onClickEvent = new EventEmitter<number>();
+
+  faGamepad = faGamepad;
 
   constructor() { }
 

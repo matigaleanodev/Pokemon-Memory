@@ -10,16 +10,9 @@
     overflow: hidden;
     cursor: pointer;
     z-index: 1;
-
-    font-family: 'Roboto', 'Segoe UI', sans-serif;
-    text-transform: uppercase;
-    font-weight: bold;
-    font-size: 17px;
-    text-shadow: var(--dark-green) 0 0 5px;
-    color: var(--main-color);
-   }
+}
    
-   .btn::after, .btn::before {
+.btn::after, .btn::before {
     content: '';
     display: block;
     height: 100%;
@@ -31,27 +24,38 @@
     z-index: -1;
     transition: .5s ease-out;
     background-color: var(--main-color);
-   }
+}
    
-   .btn::before {
+.btn::before {
     top: -50%;
     left: -25%;
     transform: skew(90deg) rotate(180deg) translate(-50%, -50%);
-   }
+}
    
-   .btn:hover::before {
+.btn:hover::before {
     transform: skew(45deg) rotate(180deg) translate(-50%, -50%);
-   }
+}
    
-   .btn:hover::after {
+.btn:hover::after {
     transform: skew(45deg) translate(-50%, -50%);
-   }
+}
    
-   .btn:hover {
+.btn:hover .btn-text:not(:hover) {
     color: var(--main-green);
-   }
+}
    
-   .btn:active {
+.btn:active {
     filter: brightness(.7);
     transform: scale(.95);
-   }
+}
+.btn-text {       
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 17px;
+    text-shadow: var(--dark-green) 0 0 5px;
+    color: var(--main-color);
+    transition: all .5s;
+}
+.btn-text:hover {
+    color: var(--main-green);
+}

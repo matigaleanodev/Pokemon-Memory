@@ -1,20 +1,19 @@
 .score{
-    font-size: 2em;
-    font-weight: bold;
-    color: var(--main-color);
-    text-align: center;
-    margin-top: 10px;
-    border: 3px solid var(--main-color);
-    border-radius: 6px;
-    box-shadow: var(--dark-green) 0 0 10px;
-    
-    font-weight: bold;
-    font-size: 17px;
-    text-transform: uppercase;
-    text-shadow: var(--dark-green) 0 0 5px;
+  border: 3px solid var(--main-color);
+  border-radius: 6px;
+  box-shadow: var(--dark-green) 0 0 15px;
+  padding-bottom: 0;
+  margin-bottom: 0;
+  
+  color: var(--main-color);
+  text-align: center;
+  font-weight: bold;
+  font-size: 1rem;
+  text-transform: uppercase;
+  text-shadow: var(--dark-green) 0 0 5px;
 }
 @media (min-width: 768px) {
-    .score {
-      width: 80%;
-    }
+  .score {
+    width: 80%;
   }
+}

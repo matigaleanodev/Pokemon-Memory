@@ -1,13 +1,11 @@
-<main class="container-fluid">
-    <app-start-screen  
+<app-start-screen
+        class="container-fluid"
         *ngIf="!this.gameStarted"
         (startGameEvent)="getCards($event)"
         [pokemonScreen]="this.pokemonScreen"
         ></app-start-screen>
-    <div 
-        class="row pt-2"
-        *ngIf="this.gameStarted"
-        >
+<main class="container-fluid" *ngIf="this.gameStarted">
+    <div class="row pt-2">
         <app-board 
             class="d-flex align-items-center justify-content-center col-12 col-md-9"
             [pokemonLength]="this.pokemonLength"
@@ -17,24 +15,28 @@
             (matchEvent)="addMatch($event)"
             >
         </app-board>
-        <div class="d-flex col-12 col-md-3">
-            <div class="container">
-                <div class="row">
-                    <app-button 
-                        class="d-flex align-items-center justify-content-center pt-1 pt-md-5"
-                        [pokemonLength]="12"
-                        [text]="this.gameStarted ? 'Reiniciar' : 'Iniciar'"
-                        (onClickEvent)="restartGame()"
-                    ></app-button>
-                </div>
-                <div class="row pt-1 pt-md-5">
-                    <app-score
-                        class="d-flex align-items-center justify-content-center"
-                        [movements]="this.movements"
-                        [matches]="this.matches"
-                    ></app-score>
-                </div>
+        <div class="col-12 col-md-3">
+            <div class="row">
+                <app-button 
+                    class="d-flex align-items-center justify-content-center pt-1 pt-md-5"
+                    [pokemonLength]="12"
+                    [text]="this.gameStarted ? 'Reiniciar' : 'Iniciar'"
+                    (onClickEvent)="restartGame()"
+                ></app-button>
+            </div>
+            <div class="row">
+                <app-score
+                    class="d-flex align-items-center justify-content-center pt-1 pt-md-5"
+                    [movements]="this.movements"
+                    [matches]="this.matches"
+                ></app-score>
+            </div>
+            <div class="row">
+                <app-about
+                    class="d-flex align-items-center justify-content-center pt-1 pt-md-5"
+                ></app-about>
             </div>
         </div>
     </div>
 </main>
+
