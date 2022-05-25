@@ -1,6 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { CardInfo } from '../interface';
-
 
 @Component({
   selector: 'app-board',
@@ -10,22 +9,28 @@ import { CardInfo } from '../interface';
 export class BoardComponent implements OnInit {
   
   // Id de pokemones, exp: 1 = Bulbasaur, 2 = Charmander, etc.
-  matches: number = 0;
   min: number = 1;
   max: number = 899;
-  pokemonScreen: number = 0;
-  pokemonLength: number = 0; // cantidad de pokemons
-  pokemonList: number[] = []; // lista de pokemones a aparecer
-  gameStarted: boolean = false; 
+  matches: number = 0;
   flippedCards: number[] = [];
   cardInfo: CardInfo[] = [];
+  @Input() pokemonLength: number = 0; // cantidad de pokemons
+  @Input() gameStarted: boolean = false;
+  @Input() restart: number = 0;
+  @Output() movementEvent = new EventEmitter();
+  @Output() matchEvent = new EventEmitter();
 
   
   constructor(
   ) { }
 
   ngOnInit(): void {
-    this.pokemonScreen = this.getRandomInt(1, 152);
+    this.getCards(this.pokemonLength);
+  }
+  ngOnChanges(): void {
+    if (this.restart != 0) {
+      this.restartGame();
+    }
   }
   // funcion para generar numeros aleatorios
   getRandomInt(min: number, max: number): any {
@@ -36,50 +41,58 @@ export class BoardComponent implements OnInit {
     array.sort(() => Math.random() - 0.5);
     return array;
   }
-  // funcion para obtener la lista de pokemons
-  getPokemonList(): void {
-    this.pokemonList = [];
-    for (let i = 0; i < this.pokemonLength; i++) {
-      this.pokemonList.push(this.getRandomInt(this.min, this.max));
-    }
-    this.pokemonList = this.pokemonList.concat(this.pokemonList);
-    this.pokemonList = this.shuffle(this.pokemonList);
-  }
   // funcion para generar informacion de las cartas
   getCardInfo(){
-    for (let i in this.pokemonList) {
+    let pokemonList: number[] = []
+    for (let i = 0; i < this.pokemonLength; i++) {
+      pokemonList.push(this.getRandomInt(this.min, this.max));
+    }
+    pokemonList = pokemonList.concat(pokemonList);
+    pokemonList = this.shuffle(pokemonList);
+    for (let i in pokemonList) {
       this.cardInfo.push({
-        id: this.pokemonList[i],
+        id: pokemonList[i],
         state: 'default'
       });
     }
   }
   // funcion para generar las cartas
   getCards(pokemonLength: number): boolean{
-    this.pokemonList = [];
     this.cardInfo = [];
     this.pokemonLength = pokemonLength;
-    this.getPokemonList();
     this.getCardInfo();
     return this.gameStarted = true;
+  }
+  // funcion para reiniciar el juego
+  restartGame(){
+      this.cardInfo = [];
+      this.matches = 0;
+      this.getCards(this.pokemonLength);
   }
   // funcion para comparar las cartas
   flipCard(index: number){
     this.cardInfo[index].state = 'flipped';
-    setTimeout(() => {
-      if (this.flippedCards.length === 0) {
-        this.flippedCards.push(index);
-      } else if (this.flippedCards.length === 1 && this.cardInfo[this.flippedCards[0]].id === this.cardInfo[index].id){
-          this.cardInfo[index].state = 'matched';
-          this.cardInfo[this.flippedCards[0]].state = 'matched';
-          this.flippedCards = [];
-        } else {
-          this.cardInfo[this.flippedCards[0]].state = 'default';
-          this.cardInfo[index].state = 'default';
-          this.flippedCards = [];
-        }
-    } , 600);
+    this.movementEvent.emit(1);
+      setTimeout(() => {
+        let matches: number = 0;
+        if (this.flippedCards.length === 0) {
+          this.flippedCards.push(index);
+        } else if (this.flippedCards.length === 1 && this.cardInfo[this.flippedCards[0]].id === this.cardInfo[index].id){
+            this.cardInfo[index].state = 'matched';
+            matches += 1;
+            this.cardInfo[this.flippedCards[0]].state = 'matched';
+            this.flippedCards = [];
+  
+          } else {
+            this.cardInfo[this.flippedCards[0]].state = 'default';
+            this.cardInfo[index].state = 'default';
+            this.flippedCards = [];
+          }
+          
+          this.matchEvent.emit(matches);
+      } , 600);
   }
+
   
 
 }

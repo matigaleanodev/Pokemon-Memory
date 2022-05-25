@@ -13,10 +13,16 @@ export class StartScreenComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    this.setVolume();
   }
 
   startGame(pokemonLength: number) {
     this.startGameEvent.emit(pokemonLength);
+  }
+
+  setVolume(){
+    let audio: any = document.getElementById('screenAudio')
+    audio.volume = 0.2;
   }
 
 }

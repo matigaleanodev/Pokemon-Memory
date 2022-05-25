@@ -1,41 +1,12 @@
-<main class="container-fluid">
-    <app-start-screen  
-        *ngIf="!this.gameStarted"
-        (startGameEvent)="getCards($event)"
-        [pokemonScreen]="this.pokemonScreen"
-        ></app-start-screen>
-    <div 
-        class="row pt-2"
-        *ngIf="this.gameStarted"
-        >
-        <div class="col-12 col-md-9">
-            <div class="container-fluid">
-                <div class="row vh-100">
-                    <app-card
-                        class="col-3 col-md-2 p-0"
-                        *ngFor="let pokemon of cardInfo"
-                        [pokemon]="pokemon.id"
-                        [state]="pokemon.state"
-                        [id]="cardInfo.indexOf(pokemon)"
-                        (flip)="flipCard($event)"
-                    ></app-card>        
-                </div>
-            </div>
-        </div>
-        <div class="d-flex col-12 col-md-3">
-            <div class="container">
-                <div class="row">
-                    <app-score></app-score>
-                </div>
-                <div class="row d-flex">
-                    <app-button 
-                        class="col-12 mt-auto"
-                        [pokemonLength]="12"
-                        [text]="this.gameStarted ? 'Reiniciar' : 'Iniciar'"
-                        (onClickEvent)="getCards($event)"
-                    ></app-button>
-                </div>
-            </div>
-        </div>
+<div class="container-fluid">
+    <div class="row board">
+        <app-card
+            class="col-3 col-md-2 p-0"
+            *ngFor="let pokemon of cardInfo"
+            [pokemon]="pokemon.id"
+            [state]="pokemon.state"
+            [id]="cardInfo.indexOf(pokemon)"
+            (flip)="flipCard($event)"
+        ></app-card>        
     </div>
-</main>
+</div>

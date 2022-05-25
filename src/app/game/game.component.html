@@ -1,3 +1,39 @@
-<app-board></app-board>
-<!-- <app-score class="col-12 col-md-3"></app-score> class="col-12 col-md-9" -->
-
+<main class="container-fluid">
+    <app-start-screen  
+        *ngIf="!this.gameStarted"
+        (startGameEvent)="getCards($event)"
+        [pokemonScreen]="this.pokemonScreen"
+        ></app-start-screen>
+    <div 
+        class="row pt-2"
+        *ngIf="this.gameStarted"
+        >
+        <app-board 
+            class="col-12 col-md-9"
+            [pokemonLength]="this.pokemonLength"
+            [gameStarted]="this.gameStarted"
+            [restart]="this.restart"
+            (movementEvent)="addMovement($event)"
+            (matchEvent)="addMatch($event)"
+            >
+        </app-board>
+        <div class="d-flex col-12 col-md-3">
+            <div class="container">
+                <div class="row d-flex">
+                    <app-button 
+                        class="col-12 pt-5"
+                        [pokemonLength]="12"
+                        [text]="this.gameStarted ? 'Reiniciar' : 'Iniciar'"
+                        (onClickEvent)="restartGame()"
+                    ></app-button>
+                </div>
+                <div class="row pt-5">
+                    <app-score
+                        [movements]="this.movements"
+                        [matches]="this.matches"
+                    ></app-score>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
