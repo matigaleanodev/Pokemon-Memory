@@ -72,6 +72,7 @@ export class BoardComponent implements OnInit {
   // funcion para comparar las cartas
   flipCard(index: number){
     this.cardInfo[index].state = 'flipped';
+    this.flipAudio();
     this.movementEvent.emit(1);
       setTimeout(() => {
         let matches: number = 0;
@@ -79,6 +80,7 @@ export class BoardComponent implements OnInit {
           this.flippedCards.push(index);
         } else if (this.flippedCards.length === 1 && this.cardInfo[this.flippedCards[0]].id === this.cardInfo[index].id){
             this.cardInfo[index].state = 'matched';
+            this.matchAudio();
             matches += 1;
             this.cardInfo[this.flippedCards[0]].state = 'matched';
             this.flippedCards = [];
@@ -91,6 +93,19 @@ export class BoardComponent implements OnInit {
           
           this.matchEvent.emit(matches);
       } , 600);
+  }
+
+  flipAudio(){
+    let audio = new Audio();
+    audio.src = "assets/audios/card-flip.wav";
+    audio.load();
+    audio.play();
+  }
+  matchAudio(){
+    let audio = new Audio();
+    audio.src = "assets/audios/match.wav";
+    audio.load();
+    audio.play();
   }
 
   
