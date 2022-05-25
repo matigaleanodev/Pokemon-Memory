@@ -21,13 +21,13 @@
             <div class="container">
                 <div class="row d-flex">
                     <app-button 
-                        class="col-12 pt-5"
+                        class="col-12 pt-1 pt-md-5"
                         [pokemonLength]="12"
                         [text]="this.gameStarted ? 'Reiniciar' : 'Iniciar'"
                         (onClickEvent)="restartGame()"
                     ></app-button>
                 </div>
-                <div class="row pt-5">
+                <div class="row pt-1 pt-md-5">
                     <app-score
                         [movements]="this.movements"
                         [matches]="this.matches"
