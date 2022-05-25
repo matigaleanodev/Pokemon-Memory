@@ -8,11 +8,11 @@
                     src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/{{this.pokemonScreen}}.png" 
                     alt="Pokeball">
             </div>
-            <div class="col-12">
-                <h1 class="text-center">Pokemon Memory</h1>
+            <div class="d-flex justify-content-center col-12">
+                <h1 class="title">{{this.title | uppercase}}</h1>
             </div>
             <app-button 
-                    class="col-10 col-md-3 mt-auto"
+                    class="d-flex align-items-center justify-content-center col-md-4 pt-1 pt-md-5"
                     [pokemonLength]="12"
                     [text]="'Iniciar'"
                     (onClickEvent)="startGame($event)"

@@ -7,6 +7,7 @@ import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 })
 export class StartScreenComponent implements OnInit {
 
+  title: string = "Pokemon Memory";
   @Input() pokemonScreen: number = 0;
   @Output() startGameEvent = new EventEmitter<number>();
 

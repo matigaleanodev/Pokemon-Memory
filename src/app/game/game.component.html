@@ -9,7 +9,7 @@
         *ngIf="this.gameStarted"
         >
         <app-board 
-            class="col-12 col-md-9"
+            class="d-flex align-items-center justify-content-center col-12 col-md-9"
             [pokemonLength]="this.pokemonLength"
             [gameStarted]="this.gameStarted"
             [restart]="this.restart"
@@ -19,9 +19,9 @@
         </app-board>
         <div class="d-flex col-12 col-md-3">
             <div class="container">
-                <div class="row d-flex">
+                <div class="row">
                     <app-button 
-                        class="col-12 pt-1 pt-md-5"
+                        class="d-flex align-items-center justify-content-center pt-1 pt-md-5"
                         [pokemonLength]="12"
                         [text]="this.gameStarted ? 'Reiniciar' : 'Iniciar'"
                         (onClickEvent)="restartGame()"
@@ -29,6 +29,7 @@
                 </div>
                 <div class="row pt-1 pt-md-5">
                     <app-score
+                        class="d-flex align-items-center justify-content-center"
                         [movements]="this.movements"
                         [matches]="this.matches"
                     ></app-score>
