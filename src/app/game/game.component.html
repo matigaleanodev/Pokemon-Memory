@@ -11,6 +11,7 @@
             [pokemonLength]="this.pokemonLength"
             [gameStarted]="this.gameStarted"
             [restart]="this.restart"
+            [gameParams]="this.gameParams"
             (movementEvent)="addMovement($event)"
             (matchEvent)="addMatch($event)"
             >
@@ -29,6 +30,8 @@
                     class="d-flex align-items-center justify-content-center pt-1 pt-md-5"
                     [movements]="this.movements"
                     [matches]="this.matches"
+                    [restart]="this.restart"
+                    [time]="this.gameParams.time"
                 ></app-score>
             </div>
             <div class="row">

@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import { CardInfo } from '../interface';
+import { CardInfo, GameParams } from '../interface';
 
 @Component({
   selector: 'app-board',
@@ -14,17 +14,23 @@ export class BoardComponent implements OnInit {
   matches: number = 0;
   flippedCards: number[] = [];
   cardInfo: CardInfo[] = [];
+  @Output() matchEvent = new EventEmitter();
+  @Output() movementEvent = new EventEmitter();
   @Input() pokemonLength: number = 0; // cantidad de pokemons
   @Input() gameStarted: boolean = false;
   @Input() restart: number = 0;
-  @Output() movementEvent = new EventEmitter();
-  @Output() matchEvent = new EventEmitter();
-
+  @Input() gameParams: GameParams = {
+    player: '',
+    cards: 8,
+    time: 60,
+    generation: 'all'
+  }
   
   constructor(
   ) { }
 
   ngOnInit(): void {
+    this.getGeneration(this.gameParams.generation);
     this.getCards(this.pokemonLength);
   }
   ngOnChanges(): void {
@@ -62,6 +68,30 @@ export class BoardComponent implements OnInit {
     this.pokemonLength = pokemonLength;
     this.getCardInfo();
     return this.gameStarted = true;
+  }
+  // funcion para obtener generacion de pokemon
+  getGeneration(generation: string){
+    switch (generation) {
+      case 'all':
+        return this.min = 1, this.max = 899;
+      case 'first':
+        return this.min = 1, this.max = 152;
+      case 'second':
+        return this.min = 152, this.max = 252;
+      case 'third':
+        return this.min = 252, this.max = 387;
+      case 'fourth':
+        return this.min = 387, this.max = 494;
+      case 'fifth':
+        return this.min = 494, this.max = 650;
+      case 'sixth':
+        return this.min = 650, this.max = 722;
+      case 'seventh':
+        return this.min = 722, this.max = 810;
+      case 'eighth':
+        return this.min = 809, this.max = 899;
+      default:  return this.min = 1, this.max = 899;
+    }
   }
   // funcion para reiniciar el juego
   restartGame(){

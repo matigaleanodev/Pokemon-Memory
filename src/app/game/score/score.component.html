@@ -3,7 +3,7 @@
         <p class="text-center pt-1 w-100">
             Tiempo
             <br>
-            <fa-icon [icon]="faClock"></fa-icon>&nbsp;<app-countdown></app-countdown> 
+             {{ this.countdown}} Segundos
         </p>
     </div>
     <div class="col-6 p-2 mt-1 mt-md-5 score">
@@ -15,9 +15,9 @@
     </div>
     <div class="col-4 p-2 mt-1 mt-md-5 score">
         <p class="text-center pt-1 w-100">
-            Aciertos
+            pokemones restantes
             <br>
-            <fa-icon [icon]="faStar"></fa-icon>&nbsp;{{this.matches}}
+            <img src="assets/icons/pokeball.svg" alt="pokeball" class="pokeball"> &nbsp;{{this.matches}}
 
         </p>
     </div>

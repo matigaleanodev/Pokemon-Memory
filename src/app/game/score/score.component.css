@@ -12,6 +12,10 @@
   text-transform: uppercase;
   text-shadow: var(--dark-green) 0 0 5px;
 }
+.pokeball {
+  height: 1.5rem;
+  width: auto;
+}
 @media (min-width: 768px) {
   .score {
     width: 80%;

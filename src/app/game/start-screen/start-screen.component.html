@@ -11,12 +11,58 @@
             <div class="d-flex justify-content-center col-12">
                 <h1 class="title">{{this.title | uppercase}}</h1>
             </div>
-            <app-button 
-                    class="d-flex align-items-center justify-content-center col-md-4 pt-1 pt-md-5"
-                    [pokemonLength]="12"
-                    [text]="'Iniciar'"
-                    (onClickEvent)="startGame($event)"
-                ></app-button>
         </div>
+        <form
+            class="d-block col-md-8 px-1 pt-3 p-md-3 m-1 m-md-3 formulario"
+            [formGroup]="form"
+            (ngSubmit)="startGame($event)"
+            autocomplete="off"
+        >
+        <div class="d-grid">
+                <input 
+                    type="text" 
+                    class="form-control" 
+                    id="name" 
+                    placeholder="Player Name" 
+                    formControlName="player"
+                    required
+                >
+            <select
+              class="custom-select mb-3"
+              (change)="changeBoard($event)"
+              formControlName="cards"
+            >
+              <option value="">Seleccionar Tablero</option>
+              <option *ngFor="let card of cards" [ngValue]="card.value">
+                {{ card.name }}
+              </option>
+            </select>
+            <select
+              class="custom-select mb-3"
+              (change)="changeTime($event)"
+              formControlName="time"
+            >
+              <option value="">Seleccionar Tiempo</option>
+              <option *ngFor="let time of times" [ngValue]="time">
+                {{ time }}
+              </option>
+            </select>
+            <select
+              class="custom-select mb-3"
+              (change)="changeGeneration($event)"
+              formControlName="generation"
+            >
+              <option value="">Seleccionar Generacion</option>
+              <option *ngFor="let gen of generations" [ngValue]="gen">
+                {{ gen | titlecase }} Generation
+              </option>
+            </select>
+        </div>
+            <input 
+                type="submit" 
+                value="Empezar Juego" 
+                class="btn btn-primary col-12 boton"
+            >
+        </form>
     </div>
 </div>

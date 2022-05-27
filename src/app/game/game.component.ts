@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
+import { GameParams } from './interface';
+
 
 @Component({
   selector: 'app-game',
@@ -11,10 +13,18 @@ export class GameComponent implements OnInit {
   
   pokemonScreen: number = 0;
   pokemonLength: number = 0;
+
   gameStarted: boolean = false;
   restart: number = 0;
   movements: number = 0;
-  matches: number = 0;
+  matches: number = 12;
+
+  gameParams: GameParams = {
+    player: '',
+    cards: 8,
+    time: 60,
+    generation: 'all'
+  }
   
 
   constructor() { }
@@ -27,14 +37,16 @@ export class GameComponent implements OnInit {
     return Math.floor(Math.random() * (max - min)) + min;
   }
   // funcion para generar las cartas
-  getCards(pokemonLength: number): boolean{
-    this.pokemonLength = pokemonLength;
+  getCards(params: GameParams): boolean{
+    this.gameParams = params;
+    this.matches = this.gameParams.cards;
+    this.pokemonLength = this.gameParams.cards;
     return this.gameStarted = true;
   }
   //funcion para reiniciar el juego
   restartGame(){
     this.restart += 1;
-    this.matches = 0;
+    this.matches = this.gameParams.cards
     this.movements = 0;
   }
   //funcion para sumar movimientos
@@ -42,6 +54,6 @@ export class GameComponent implements OnInit {
     this.movements += movement;
   }
   addMatch(match: number){
-    this.matches += match;
+    this.matches -= match;
   }
 }
