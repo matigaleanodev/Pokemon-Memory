@@ -1,6 +1,6 @@
 <div class="container">
     <audio autoplay id="screenAudio" src="assets/audios/title-screen.mp3"></audio>
-    <div class="card-body">
+    <div class="row d-flex">
         <div class="row d-flex align-items-center justify-content-center">
             <div class="col-12 col-md-4">
                 <img 
@@ -12,57 +12,55 @@
                 <h1 class="title">{{this.title | uppercase}}</h1>
             </div>
         </div>
-        <form
-            class="d-block col-md-8 px-1 pt-3 p-md-3 m-1 m-md-3 formulario"
-            [formGroup]="form"
-            (ngSubmit)="startGame($event)"
-            autocomplete="off"
+    </div>
+    <form
+        class="d-flex row px-1 pt-3 p-md-3 m-1 m-md-3 justify-content-center align-items-center"
+        [formGroup]="form"
+        (ngSubmit)="startGame($event)"
+        autocomplete="off"
+    >
+    <div class="col-6">
+        <input 
+            type="text" 
+            class="form-control mb-1" 
+            id="name" 
+            placeholder="Player Name" 
+            formControlName="player"
+            required
         >
-        <div class="d-grid">
-                <input 
-                    type="text" 
-                    class="form-control" 
-                    id="name" 
-                    placeholder="Player Name" 
-                    formControlName="player"
-                    required
-                >
-            <select
-              class="custom-select mb-3"
-              (change)="changeBoard($event)"
-              formControlName="cards"
-            >
-              <option value="">Seleccionar Tablero</option>
-              <option *ngFor="let card of cards" [ngValue]="card.value">
+        <select
+            class="form-control custom-select mb-1"
+            formControlName="cards"
+        >
+            <option value="">Seleccionar Tablero</option>
+            <option *ngFor="let card of cards" [ngValue]="card.value">
                 {{ card.name }}
-              </option>
+            </option>
             </select>
-            <select
-              class="custom-select mb-3"
-              (change)="changeTime($event)"
-              formControlName="time"
-            >
-              <option value="">Seleccionar Tiempo</option>
-              <option *ngFor="let time of times" [ngValue]="time">
+        <select
+            class="form-control custom-select mb-1"
+            formControlName="time"
+        >
+            <option value="">Seleccionar Tiempo</option>
+            <option *ngFor="let time of times" [ngValue]="time">
                 {{ time }}
-              </option>
-            </select>
-            <select
-              class="custom-select mb-3"
-              (change)="changeGeneration($event)"
-              formControlName="generation"
-            >
-              <option value="">Seleccionar Generacion</option>
-              <option *ngFor="let gen of generations" [ngValue]="gen">
+            </option>
+        </select>
+        <select
+            class="form-control custom-select mb-1"
+            formControlName="generation"
+        >
+            <option value="">Seleccionar Generacion</option>
+            <option *ngFor="let gen of generations" [ngValue]="gen">
                 {{ gen | titlecase }} Generation
-              </option>
-            </select>
-        </div>
-            <input 
+            </option>
+        </select>
+        <input 
                 type="submit" 
                 value="Empezar Juego" 
-                class="btn btn-primary col-12 boton"
+                class="btn btn-primary btn-block col-12"
             >
-        </form>
     </div>
+            
+    </form>
 </div>

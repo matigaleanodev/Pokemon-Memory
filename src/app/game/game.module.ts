@@ -2,8 +2,6 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { MatInputModule } from '@angular/material/input';
-import { MatSelectModule } from '@angular/material/select';
 
 import { GameComponent } from './game.component';
 import { CardComponent } from './card/card.component';
@@ -29,9 +27,7 @@ import { AboutComponent } from './about/about.component';
     CommonModule,
     ReactiveFormsModule,
     FormsModule,
-    FontAwesomeModule,
-    MatInputModule,
-    MatSelectModule
+    FontAwesomeModule
   ],
   exports: [
     GameComponent

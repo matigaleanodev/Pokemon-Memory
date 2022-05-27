@@ -34,21 +34,7 @@ export class StartScreenComponent implements OnInit {
   ngOnInit(): void {
     this.setVolume();
   }
-  changeBoard(e: any) {
-    this.cards.setValue(e.target.value, {
-      onlySelf: true,
-    });
-  }
-  changeTime(e: any) {
-    this.times.setValue(e.target.value, {
-      onlySelf: true,
-    });
-  }
-  changeGeneration(e: any) {
-    this.generations.setValue(e.target.value, {
-      onlySelf: true,
-    });
-  }
+  
 
   startGame(event: Event) {
     event.preventDefault();
