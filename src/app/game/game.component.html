@@ -4,7 +4,7 @@
         (startGameEvent)="getCards($event)"
         [pokemonScreen]="this.pokemonScreen"
         ></app-start-screen>
-<main class="container-fluid" *ngIf="this.gameStarted">
+<main class="container-fluid" *ngIf="this.gameStarted && !this.gameEnded">
     <div class="row pt-2">
         <app-board 
             class="d-flex align-items-center justify-content-center col-12 col-md-9"
@@ -32,6 +32,7 @@
                     [matches]="this.matches"
                     [restart]="this.restart"
                     [time]="this.gameParams.time"
+                    (gameEndedEvent)="gameEnd()"
                 ></app-score>
             </div>
             <div class="row">
