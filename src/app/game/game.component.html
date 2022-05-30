@@ -4,7 +4,7 @@
         (startGameEvent)="getCards($event)"
         [pokemonScreen]="this.pokemonScreen"
         ></app-start-screen>
-<main class="container-fluid" *ngIf="this.gameStarted">
+<main class="container-fluid" *ngIf="this.gameStarted && !this.gameEnded">
     <div class="row pt-2">
         <app-board 
             class="d-flex align-items-center justify-content-center col-12 col-md-9"
@@ -18,27 +18,19 @@
         </app-board>
         <div class="col-12 col-md-3">
             <div class="row">
-                <app-button 
-                    class="d-flex align-items-center justify-content-center pt-1 pt-md-5"
-                    [pokemonLength]="12"
-                    [text]="this.gameStarted ? 'Reiniciar' : 'Iniciar'"
-                    (onClickEvent)="restartGame()"
-                ></app-button>
-            </div>
-            <div class="row">
-                <app-score
-                    class="d-flex align-items-center justify-content-center pt-1 pt-md-5"
-                    [movements]="this.movements"
-                    [matches]="this.matches"
-                    [restart]="this.restart"
-                    [time]="this.gameParams.time"
-                ></app-score>
-            </div>
-            <div class="row">
-                <app-about
-                    class="d-flex align-items-center justify-content-center pt-1 pt-md-5"
-                ></app-about>
-            </div>
+                <div class="col d-flex">
+                    <app-score
+                        [movements]="this.movements"
+                        [matches]="this.matches"
+                        [restart]="this.restart"
+                        [time]="this.gameParams.time"
+                        [pokemonLength]="this.pokemonLength"
+                        [gameStarted]="this.gameStarted"
+                        (gameEndedEvent)="gameEnd()"
+                        (onClickEvent)="restartGame()"
+                    ></app-score>
+                </div>
+            </div>            
         </div>
     </div>
 </main>

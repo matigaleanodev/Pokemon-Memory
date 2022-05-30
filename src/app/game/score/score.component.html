@@ -1,23 +1,32 @@
-<div class="d-flex row h-100 w-100 align-items-center justify-content-center">
-    <div class="col-10 p-2 mt-1 mt-md-5 score">
+<div class="d-flex row align-items-center justify-content-around score-bar">
+    <app-button
+        class="col-10 p-2 mt-1"
+        [pokemonLength]="12"
+        [text]="this.gameStarted ? 'Reiniciar' : 'Iniciar'"
+        (onClickEvent)="onClick()"                        
+    ></app-button>
+    <div class="col-10 p-2 mt-1 score">
         <p class="text-center pt-1 w-100">
             Tiempo
             <br>
              {{ this.countdown}} Segundos
         </p>
     </div>
-    <div class="col-6 p-2 mt-1 mt-md-5 score">
+    <div class="col-6 p-2 mt-1 score">
         <p class="text-center pt-1 w-100">
             Movimientos
             <br>
             <fa-icon [icon]="faHandPointer"></fa-icon>&nbsp;{{this.movements}}
         </p>
     </div>
-    <div class="col-4 p-2 mt-1 mt-md-5 score">
+    <div class="col-4 p-2 mt-1 score">
         <p class="text-center pt-1 w-100">
             pokemones restantes
             <br>
             <img src="assets/icons/pokeball.svg" alt="pokeball" class="pokeball"> &nbsp;{{this.matches}}
         </p>
     </div>
+    <app-about
+        class="d-flex justify-content-center col-4 p-2 mt-1"
+    ></app-about>
 </div>

@@ -1,11 +1,11 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 import { map, interval, takeWhile } from 'rxjs';
 import { faClock, faHandPointer, faStar } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-score',
   templateUrl: './score.component.html',
-  styleUrls: ['./score.component.css']
+  styleUrls: ['./score.component.scss']
 })
 export class ScoreComponent implements OnInit {
 
@@ -13,6 +13,10 @@ export class ScoreComponent implements OnInit {
   @Input() movements: number = 0;
   @Input() restart: number = 0;
   @Input() time: number = 60;
+  @Input() pokemonLength: number = 0;
+  @Input() gameStarted: boolean = false;
+  @Output() gameEndedEvent = new EventEmitter();
+  @Output() onClickEvent = new EventEmitter<number>();
 
   faClock = faClock;
   faHandPointer = faHandPointer;
@@ -33,6 +37,9 @@ export class ScoreComponent implements OnInit {
     if (this.restart != 0) {
       this.countdown = this.time;
     }
+    if (this.matches == 0 || this.countdown == 0) {
+      this.gameEndedEvent.emit();
+    }
   }
 
   getCountdown() {
@@ -40,6 +47,10 @@ export class ScoreComponent implements OnInit {
       takeWhile(() => this.countdown > 0),
       map(() => --this.countdown)
     );
+  }
+
+  onClick(){
+    this.onClickEvent.emit(this.pokemonLength);
   }
 
 }

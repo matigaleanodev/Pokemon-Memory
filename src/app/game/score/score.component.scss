@@ -1,16 +1,18 @@
+@import "src/styles";
+
 .score{
-  border: 3px solid var(--main-color);
+  border: 3px solid $main-color;
   border-radius: 6px;
-  box-shadow: var(--dark-green) 0 0 15px;
+  box-shadow: $dark-green 0 0 15px;
   padding-bottom: 0;
   margin-bottom: 0;
   
-  color: var(--main-color);
+  color: $main-color;
   text-align: center;
   font-weight: bold;
   font-size: 1rem;
   text-transform: uppercase;
-  text-shadow: var(--dark-green) 0 0 5px;
+  text-shadow: $dark-green 0 0 5px;
 }
 .pokeball {
   height: 1.5rem;
@@ -19,5 +21,10 @@
 @media (min-width: 768px) {
   .score {
     width: 80%;
+    height: 5rem;
+    margin-right: 5%;
+  }
+  .score-bar {
+    height: 90vh;
   }
 }

@@ -1,0 +1,66 @@
+@import "src/styles";
+
+.section {
+    height: 95vh;
+    width: 90%;
+}
+.title{    
+  font-weight: bold;
+  font-size: 2.5rem;
+  text-transform: uppercase;
+  text-shadow: $dark-green 0 0 5px;
+}
+
+.form-item, label{
+    margin-top: 2rem;
+    background-color: transparent;
+    border: none;
+    border-bottom: 2px solid $dark-green;
+
+    color: $main-color;
+    font-size: 1rem;
+    font-weight: 600;
+    text-shadow: $dark-green 1px 1px 2px;
+
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+
+    &:focus {
+        outline: none;
+        background-color: transparent;
+        color: $main-color;
+    }
+    &:active {
+        border-bottom: 2px solid $main-color;
+        background-color: transparent;
+        color: $main-color;
+    }
+}
+.form-option {
+    margin-top: 2rem;
+    background-color: transparent;
+    border: none;
+    border-bottom: 2px solid $dark-green;
+
+    color: $main-green;
+    font-size: 1rem;
+    font-weight: 600;
+    text-shadow: $dark-green 1px 1px 2px;
+
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+
+    &:focus {
+        outline: none;
+        background-color: transparent;
+        color: $main-color;
+    }
+    &:active {
+        border-bottom: 2px solid $main-color;
+        background-color: transparent;
+        color: $main-color;
+    }
+}
+

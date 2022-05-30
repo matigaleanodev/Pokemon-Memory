@@ -1,66 +1,75 @@
-<div class="container">
+<section class="container section">
     <audio autoplay id="screenAudio" src="assets/audios/title-screen.mp3"></audio>
-    <div class="row d-flex">
-        <div class="row d-flex align-items-center justify-content-center">
-            <div class="col-12 col-md-4">
-                <img 
-                    class="img-fluid" 
-                    src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/{{this.pokemonScreen}}.png" 
-                    alt="Pokeball">
-            </div>
-            <div class="d-flex justify-content-center col-12">
-                <h1 class="title">{{this.title | uppercase}}</h1>
-            </div>
+    <div class="row text-center">
+        <div class="col-12">
+            <img 
+            class="img-fluid" 
+            src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/{{this.pokemonScreen}}.png" 
+            alt="Pokeball">
         </div>
     </div>
+    <div class="row">
+        <h1 class="col-12 text-center text-light title">{{this.title | uppercase}}</h1>
+    </div>
     <form
-        class="d-flex row px-1 pt-3 p-md-3 m-1 m-md-3 justify-content-center align-items-center"
+        class="container col-12 col-md-6"
         [formGroup]="form"
         (ngSubmit)="startGame($event)"
         autocomplete="off"
     >
-    <div class="col-6">
-        <input 
-            type="text" 
-            class="form-control mb-1" 
-            id="name" 
-            placeholder="Player Name" 
-            formControlName="player"
-            required
-        >
-        <select
-            class="form-control custom-select mb-1"
-            formControlName="cards"
-        >
-            <option value="">Seleccionar Tablero</option>
-            <option *ngFor="let card of cards" [ngValue]="card.value">
-                {{ card.name }}
-            </option>
-            </select>
-        <select
-            class="form-control custom-select mb-1"
-            formControlName="time"
-        >
-            <option value="">Seleccionar Tiempo</option>
-            <option *ngFor="let time of times" [ngValue]="time">
-                {{ time }}
-            </option>
-        </select>
-        <select
-            class="form-control custom-select mb-1"
-            formControlName="generation"
-        >
-            <option value="">Seleccionar Generacion</option>
-            <option *ngFor="let gen of generations" [ngValue]="gen">
-                {{ gen | titlecase }} Generation
-            </option>
-        </select>
-        <input 
-                type="submit" 
-                value="Empezar Juego" 
-                class="btn btn-primary btn-block col-12"
+        <div class="form-floating row my-1">
+            <input 
+                type="text" 
+                class="form-control col-12 form-item" 
+                id="player"
+                placeholder="Player Name" 
+                formControlName="player"
+                required
             >
-    </div>
-            
+            <label for="player">Player Name</label>
+        </div>
+        <div class="row my-1">
+            <select
+                class="form-select col-12 col-md-6 form-item"
+                formControlName="cards"
+                aria-label="cards"                
+            >
+                <option class="form-option" value="">Seleccionar Tablero</option>
+                <option class="form-option" *ngFor="let card of cards" [ngValue]="card.value">
+                    {{ card.name }}
+                </option>
+            </select>
+        </div>
+        <div class="row my-1">
+            <select
+                class="form-select col-12 col-md-6 form-item"
+                formControlName="time"
+                aria-label="time"
+            >
+                <option class="form-option" value="">Seleccionar Tiempo</option>
+                <option class="form-option" *ngFor="let time of times" [ngValue]="time">
+                    {{ time }}
+                </option>
+            </select>
+        </div>
+        <div class="row my-1">
+            <select
+                class="form-select col-12 col-md-6 form-item"
+                formControlName="generation"
+                aria-label="generation"
+            >
+                <option class="form-option" value="">Seleccionar Generacion</option>
+                <option class="form-option" *ngFor="let gen of generations" [ngValue]="gen">
+                    {{ gen | titlecase }} Generation
+                </option>
+            </select>
+        </div>
+        <div class="row my-1">
+            <app-button
+            [text]="'Start Game'"
+            [pokemonLength]="0"
+            class="col-12 col-md-6 mt-2"
+            ></app-button>   
+        </div>
     </form>
-</div>
+</section>
