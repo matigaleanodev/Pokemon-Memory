@@ -15,16 +15,12 @@
     margin-top: 2rem;
     background-color: transparent;
     border: none;
-    border-bottom: 2px solid $dark-green;
+    border-bottom: 4px solid $dark-green;
 
     color: $main-color;
     font-size: 1rem;
     font-weight: 600;
     text-shadow: $dark-green 1px 1px 2px;
-
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
 
     &:focus {
         outline: none;
@@ -32,7 +28,7 @@
         color: $main-color;
     }
     &:active {
-        border-bottom: 2px solid $main-color;
+        border-bottom: 2px solid $dark-green;
         background-color: transparent;
         color: $main-color;
     }
@@ -41,16 +37,12 @@
     margin-top: 2rem;
     background-color: transparent;
     border: none;
-    border-bottom: 2px solid $dark-green;
+    border-bottom: 4px solid $dark-green;
 
     color: $main-green;
     font-size: 1rem;
     font-weight: 600;
     text-shadow: $dark-green 1px 1px 2px;
-
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
 
     &:focus {
         outline: none;
@@ -58,7 +50,6 @@
         color: $main-color;
     }
     &:active {
-        border-bottom: 2px solid $main-color;
         background-color: transparent;
         color: $main-color;
     }

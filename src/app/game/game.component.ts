@@ -1,6 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { MatDialog } from '@angular/material/dialog';
-import { DialogScoreComponent } from './dialog-score/dialog-score.component';
 
 import { GameParams } from './interface';
 
@@ -30,9 +28,7 @@ export class GameComponent implements OnInit {
   }
   
 
-  constructor(
-    public dialog: MatDialog
-  ) { }
+  constructor(  ) { }
 
   ngOnInit(): void {
     this.pokemonScreen = this.getRandomInt(1, 152);
@@ -67,16 +63,6 @@ export class GameComponent implements OnInit {
   //funcion para terminar el juego
   gameEnd(){
     this.gameEnded = true;
-    const dialogRef = this.dialog.open(DialogScoreComponent, {
-      height: '250px',
-      width: '250px',
-      data: {
-        player: this.gameParams.player,
-        matches: this.matches,
-        movements: this.movements,
-        time: this.gameParams.time,
-        generation: this.gameParams.generation
-      }
-    });
+    
   }
 }
