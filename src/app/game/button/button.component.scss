@@ -1,10 +1,11 @@
+@import "src/styles";
 
 .btn {
     background-color: transparent;
     width: 80%;
-    border: 3px solid var(--main-color);
+    border: 3px solid $main-color;
     border-radius: 6px;
-    box-shadow: var(--dark-green) 0 0 10px;
+    box-shadow: $dark-green 0 0 10px;
     transition: .5s;
     position: relative;
     overflow: hidden;
@@ -23,7 +24,7 @@
     left: 25%;
     z-index: -1;
     transition: .5s ease-out;
-    background-color: var(--main-color);
+    background-color: $main-color;
 }
    
 .btn::before {
@@ -41,7 +42,7 @@
 }
    
 .btn:hover .btn-text:not(:hover) {
-    color: var(--main-green);
+    color: $main-green;
 }
    
 .btn:active {
@@ -52,10 +53,10 @@
     text-transform: uppercase;
     font-weight: bold;
     font-size: 17px;
-    text-shadow: var(--dark-green) 0 0 5px;
-    color: var(--main-color);
+    text-shadow: $dark-green 0 0 5px;
+    color: $main-color;
     transition: all .5s;
 }
 .btn-text:hover {
-    color: var(--main-green);
+    color: $main-green;
 }

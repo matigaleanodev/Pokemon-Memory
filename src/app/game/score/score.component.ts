@@ -13,7 +13,10 @@ export class ScoreComponent implements OnInit {
   @Input() movements: number = 0;
   @Input() restart: number = 0;
   @Input() time: number = 60;
+  @Input() pokemonLength: number = 0;
+  @Input() gameStarted: boolean = false;
   @Output() gameEndedEvent = new EventEmitter();
+  @Output() onClickEvent = new EventEmitter<number>();
 
   faClock = faClock;
   faHandPointer = faHandPointer;
@@ -44,6 +47,10 @@ export class ScoreComponent implements OnInit {
       takeWhile(() => this.countdown > 0),
       map(() => --this.countdown)
     );
+  }
+
+  onClick(){
+    this.onClickEvent.emit(this.pokemonLength);
   }
 
 }

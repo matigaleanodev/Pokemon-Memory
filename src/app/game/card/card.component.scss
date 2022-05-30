@@ -2,16 +2,28 @@
 *{
     transition: all 0.5s;
 }
-.card {
-    height: 95%;
-    width: 75%;
-    transform-style: preserve-3d;
-    position: relative;
-    cursor: pointer;
-    animation: gameStart 3s;
+@media (max-width: 767px) {
+    .card {
+        height: 80%;
+        width: 75%;
+        transform-style: preserve-3d;
+        position: relative;
+        cursor: pointer;
+        animation: gameStart 3s;
+    }
+}
+@media (min-width: 768px) {
+    .card {
+        height: 95%;
+        width: 60%;
+        transform-style: preserve-3d;
+        position: relative;
+        cursor: pointer;
+        animation: gameStart 3s;
+    }
 }
 .card-face{
-    border: 5px solid #fff;
+    border: 3px solid #fff;
     position: absolute;
     backface-visibility: hidden;
     box-shadow: var(--dark-green) 0 0 10px;    

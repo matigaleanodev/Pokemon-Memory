@@ -8,7 +8,6 @@ import { CardInfo, GameParams } from '../interface';
 })
 export class BoardComponent implements OnInit {
   
-  // Id de pokemones, exp: 1 = Bulbasaur, 2 = Charmander, etc.
   min: number = 1;
   max: number = 899;
   matches: number = 0;
