@@ -46,8 +46,5 @@ export class ScoreComponent implements OnInit {
       map(() => --this.countdown)
     );
   }
-  onClick(){
-    this.onClickEvent.emit(this.pokemonLength);
-  }
 
 }

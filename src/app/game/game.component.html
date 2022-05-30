@@ -35,9 +35,12 @@
 </main>
 <app-end-screen
     *ngIf="this.gameEnded"
+    [player]="this.gameParams.player"
     [movements]="this.movements"
     [matches]="this.matches"
+    [pokemonLength]="this.pokemonLength"
     [time]="this.gameParams.time"
     [restart]="this.restart"
     (onClickEvent)="restartGame()"
+    (onRestartApp)="restartApp()"
 ></app-end-screen>

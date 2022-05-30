@@ -3,7 +3,7 @@
         class="col-10 p-2 mt-1"
         [pokemonLength]="12"
         [text]="this.gameStarted ? 'Reiniciar' : 'Iniciar'"
-        (onClickEvent)="onClick()"                        
+        (onClickEvent)="onClickEvent.emit(this.pokemonLength)"                        
     ></app-button>
     <app-player-profile
         class="col-10 p-2 mt-1"

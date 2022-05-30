@@ -1,1 +1,33 @@
-<p>end-screen works!</p>
+<section class="container vh-100 pt-2 pt-md-5">
+    <div class="row">
+        <div class="col-12">
+            <h1 class="text-center title">Game Over</h1>
+        </div>
+    </div>
+    <div class="row feedback" id="feedback">
+        <div class="col-12" *ngIf="this.matches == 0">
+            <app-player-profile
+                [player]="this.player"
+                [text]="'Gracias por jugar!'"
+            ></app-player-profile>
+            <p class="feedback-text">
+                Lograste {{ pokemonLength }} aciertos en {{ movements }} movimientos en menos de {{ time }} segundos
+            </p>
+        </div>
+        <div class="col-12" *ngIf="this.matches != 0">
+            <h2 class="text-center">Intentalo de nuevo!</h2>
+        </div>
+    </div>
+    <div class="row mt-2 end-button">
+        <app-button
+            [text]="'Play Again'"
+            (click)="onClickEvent.emit(this.pokemonLength)"            
+            ></app-button>
+    </div>
+    <div class="row mt-2 end-button">
+        <app-button
+            [text]="'Home Screen'"
+            (click)="onRestartApp.emit()"
+        ></app-button>
+    </div>
+</section>

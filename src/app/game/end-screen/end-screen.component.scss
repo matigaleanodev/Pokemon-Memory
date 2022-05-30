@@ -1,1 +1,30 @@
 @import "src/styles";
+
+@media (max-width: 767px) {
+    .end-button{
+        width: 100%;
+    }
+}
+@media (min-width: 768px) {
+    .end-button{
+        width: 50%;
+        margin: 0 auto;
+    }
+    .feedback-text {
+        width: 50%;
+    }
+}
+.title{    
+    font-weight: bold;
+    font-size: 2.5rem;
+    text-transform: uppercase;
+    text-shadow: $dark-green 0 0 5px;
+}
+.feedback-text {
+    font-size: 2rem;
+    color: $main-color;
+    text-align: center;        
+    line-height: 2.5rem;
+    text-shadow: 2px 2px 5px $dark-green;
+    margin: 1.5rem auto;
+}

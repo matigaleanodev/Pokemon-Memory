@@ -1,8 +1,9 @@
 @import "src/styles";
 
-.btn {
+.button {
     background-color: transparent;
-    width: 80%;
+    width: 100%;
+    height: 2.5rem;
     border: 3px solid $main-color;
     border-radius: 6px;
     box-shadow: $dark-green 0 0 10px;
@@ -46,15 +47,16 @@
         filter: brightness(.7);
         transform: scale(.95);
     }
-}
-.btn-text {       
-    text-transform: uppercase;
-    font-weight: bold;
-    font-size: 17px;
-    text-shadow: $dark-green 0 0 5px;
-    color: $main-color;
-    transition: all .5s;
-    &:hover {
-        color: $main-green;
+    &-text {       
+        text-transform: uppercase;
+        font-weight: bold;
+        font-size: 17px;
+        text-shadow: $dark-green 0 0 5px;
+        color: $main-color;
+        transition: all .5s;
+        &:hover {
+            color: $main-green;
+        }
     }
 }
+

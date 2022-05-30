@@ -47,9 +47,15 @@ export class GameComponent implements OnInit {
   //metodo para reiniciar el juego
   restartGame(){
     this.restart += 1;
+    this.gameEnded = false;
     this.matches = this.gameParams.cards
     this.movements = 0;
   }
+  //metodo para volver a la pantalla de inicio
+  restartApp(){
+    this.gameStarted = false;
+    this.gameEnded = false;
+  }  
   //metodo para sumar movimientos
   addMovement(movement: number){
     this.movements += movement;
@@ -61,6 +67,5 @@ export class GameComponent implements OnInit {
   //metodo para terminar el juego
   gameEnd(){
     this.gameEnded = true;
-    
   }
 }
