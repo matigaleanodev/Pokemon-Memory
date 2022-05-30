@@ -3,7 +3,7 @@
 	"version": 1,
 	"newProjectRoot": "projects",
 	"projects": {
-		"JuegoMemoria": {
+		"PokemonMemory": {
 			"projectType": "application",
 			"schematics": {
 				"@schematics/angular:class": {
@@ -96,10 +96,10 @@
 					"builder": "@angular-devkit/build-angular:dev-server",
 					"configurations": {
 						"production": {
-							"browserTarget": "JuegoMemoria:build:production"
+							"browserTarget": "PokemonMemory:build:production"
 						},
 						"development": {
-							"browserTarget": "JuegoMemoria:build:development"
+							"browserTarget": "PokemonMemory:build:development"
 						}
 					},
 					"defaultConfiguration": "development"
@@ -107,7 +107,7 @@
 				"extract-i18n": {
 					"builder": "@angular-devkit/build-angular:extract-i18n",
 					"options": {
-						"browserTarget": "JuegoMemoria:build"
+						"browserTarget": "PokemonMemory:build"
 					}
 				},
 				"test": {
@@ -135,5 +135,5 @@
 			}
 		}
 	},
-	"defaultProject": "JuegoMemoria"
+	"defaultProject": "PokemonMemory"
 }

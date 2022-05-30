@@ -32,9 +32,6 @@ import { AboutComponent } from './about/about.component';
     FontAwesomeModule,
     BrowserAnimationsModule
   ],
-  entryComponents: [
-    DialogScoreComponent
-  ],
   exports: [
     GameComponent
   ]
