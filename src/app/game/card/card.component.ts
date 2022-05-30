@@ -14,11 +14,8 @@ export class CardComponent implements OnInit {
   @Input() id = 0;
   @Output() flip = new EventEmitter<number>();
 
-  constructor(
-  ) {
-  }
+  constructor() {}
    
-
   ngOnInit(): void {
   }
   

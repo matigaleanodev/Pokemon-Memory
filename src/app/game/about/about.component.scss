@@ -1,27 +1,12 @@
 @import "src/styles";
 
-.about{
-    margin-top: auto;
-    margin-bottom: 0;
-    border: 3px solid $main-color;
-    border-radius: 6px;
-    box-shadow: $dark-green 0 0 10px;
-}
-.about {
-    color: $main-color;
-    text-align: center;
-    font-weight: bold;
-    font-size: 1rem;
-    text-shadow: $dark-green 0 0 5px;
-}
 .about-link {
     color: $main-color;
     font-size: 1.5rem;
     text-decoration: none;
     transition: all .3s;
-}
-.about-link:hover {
-    color: $dark-green;
-    opacity: .7;
-    
+    &:hover {
+        color: $dark-green;
+        opacity: .7;
+    }
 }

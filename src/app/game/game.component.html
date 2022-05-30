@@ -1,9 +1,8 @@
 <app-start-screen
-        class="container-fluid"
-        *ngIf="!this.gameStarted"
-        (startGameEvent)="getCards($event)"
-        [pokemonScreen]="this.pokemonScreen"
-        ></app-start-screen>
+    *ngIf="!this.gameStarted"
+    (startGameEvent)="getCards($event)"
+    [pokemonScreen]="this.pokemonScreen"
+></app-start-screen>
 <main class="container-fluid" *ngIf="this.gameStarted && !this.gameEnded">
     <div class="row pt-2">
         <app-board 
@@ -14,8 +13,7 @@
             [gameParams]="this.gameParams"
             (movementEvent)="addMovement($event)"
             (matchEvent)="addMatch($event)"
-            >
-        </app-board>
+        ></app-board>
         <div class="col-12 col-md-3">
             <div class="row">
                 <div class="col d-flex">
@@ -24,6 +22,7 @@
                         [matches]="this.matches"
                         [restart]="this.restart"
                         [time]="this.gameParams.time"
+                        [player]="this.gameParams.player"
                         [pokemonLength]="this.pokemonLength"
                         [gameStarted]="this.gameStarted"
                         (gameEndedEvent)="gameEnd()"
@@ -34,4 +33,11 @@
         </div>
     </div>
 </main>
-
+<app-end-screen
+    *ngIf="this.gameEnded"
+    [movements]="this.movements"
+    [matches]="this.matches"
+    [time]="this.gameParams.time"
+    [restart]="this.restart"
+    (onClickEvent)="restartGame()"
+></app-end-screen>

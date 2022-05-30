@@ -34,8 +34,6 @@ export class StartScreenComponent implements OnInit {
   ngOnInit(): void {
     this.setVolume();
   }
-  
-
   startGame(event: Event) {
     event.preventDefault();
     if (this.form.valid){
@@ -45,10 +43,8 @@ export class StartScreenComponent implements OnInit {
       alert('Please fill all the fields');
     }
   }
-
   setVolume(){
     let audio: any = document.getElementById('screenAudio')
     audio.volume = 0.2;
   }
-
 }

@@ -1,0 +1,13 @@
+@import "src/styles";
+
+.profile {
+    height: 10rem;
+    color: $main-color;
+    text-align: center;
+    font-weight: bold;
+    font-size: 1rem;
+    text-shadow: $dark-green 0 0 5px;
+    &-image {
+        box-shadow: $dark-green 0 0 15px;
+    }
+}

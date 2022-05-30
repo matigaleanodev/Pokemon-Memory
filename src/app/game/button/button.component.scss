@@ -11,43 +11,41 @@
     overflow: hidden;
     cursor: pointer;
     z-index: 1;
-}
-   
-.btn::after, .btn::before {
-    content: '';
-    display: block;
-    height: 100%;
-    width: 100%;
-    transform: skew(90deg) translate(-50%, -50%);
-    position: absolute;
-    inset: 50%;
-    left: 25%;
-    z-index: -1;
-    transition: .5s ease-out;
-    background-color: $main-color;
-}
-   
-.btn::before {
-    top: -50%;
-    left: -25%;
-    transform: skew(90deg) rotate(180deg) translate(-50%, -50%);
-}
-   
-.btn:hover::before {
-    transform: skew(45deg) rotate(180deg) translate(-50%, -50%);
-}
-   
-.btn:hover::after {
-    transform: skew(45deg) translate(-50%, -50%);
-}
-   
-.btn:hover .btn-text:not(:hover) {
-    color: $main-green;
-}
-   
-.btn:active {
-    filter: brightness(.7);
-    transform: scale(.95);
+    &::after, &::before {
+        content: '';
+        display: block;
+        height: 100%;
+        width: 100%;
+        transform: skew(90deg) translate(-50%, -50%);
+        position: absolute;
+        inset: 50%;
+        left: 25%;
+        z-index: -1;
+        transition: .5s ease-out;
+        background-color: $main-color;
+    }
+    &::before {
+        top: -50%;
+        left: -25%;
+        transform: skew(90deg) rotate(180deg) translate(-50%, -50%);
+    }
+       
+    &:hover::before {
+        transform: skew(45deg) rotate(180deg) translate(-50%, -50%);
+    }
+       
+    &:hover::after {
+        transform: skew(45deg) translate(-50%, -50%);
+    }
+       
+    &:hover .btn-text:not(:hover) {
+        color: $main-green;
+    }
+       
+    &:active {
+        filter: brightness(.7);
+        transform: scale(.95);
+    }
 }
 .btn-text {       
     text-transform: uppercase;
@@ -56,7 +54,7 @@
     text-shadow: $dark-green 0 0 5px;
     color: $main-color;
     transition: all .5s;
-}
-.btn-text:hover {
-    color: $main-green;
+    &:hover {
+        color: $main-green;
+    }
 }

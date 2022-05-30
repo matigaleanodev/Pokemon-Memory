@@ -32,31 +32,20 @@
       grid-template-columns: repeat(4, 1fr);
       grid-template-rows: repeat(4, 1fr);
       grid-gap: 1rem;
-      padding: 4rem;
+      padding: 0 4rem 0 4rem;
     }
     .board10 {
       display: grid;
       grid-template-columns: repeat(5, 1fr);
       grid-template-rows: repeat(4, 1fr);
       grid-gap: 0.2rem;
-      padding: 3rem;
+      padding: 0 3rem 0 3rem;
     }
     .board12 {
       display: grid;
       grid-template-columns: repeat(6, 1fr);
       grid-template-rows: repeat(4, 1fr);
       grid-gap: 0.2rem;
-      padding: 2rem;
+      padding: 0 2rem 0 2rem;
     }
   }
-.board8 {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-template-rows: repeat(4, 1fr);
-  grid-gap: 1rem;
-  padding: 1rem;
-}
-.smallBoard{
-  width: 50%;
-}
-

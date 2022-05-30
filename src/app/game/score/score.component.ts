@@ -15,9 +15,9 @@ export class ScoreComponent implements OnInit {
   @Input() time: number = 60;
   @Input() pokemonLength: number = 0;
   @Input() gameStarted: boolean = false;
+  @Input() player: string = '';
   @Output() gameEndedEvent = new EventEmitter();
   @Output() onClickEvent = new EventEmitter<number>();
-
   faClock = faClock;
   faHandPointer = faHandPointer;
   faStar = faStar;
@@ -32,7 +32,6 @@ export class ScoreComponent implements OnInit {
       (countdown) => this.countdown = countdown
     );
   }
-
   ngOnChanges() {
     if (this.restart != 0) {
       this.countdown = this.time;
@@ -41,14 +40,12 @@ export class ScoreComponent implements OnInit {
       this.gameEndedEvent.emit();
     }
   }
-
   getCountdown() {
     return interval(1000).pipe(
       takeWhile(() => this.countdown > 0),
       map(() => --this.countdown)
     );
   }
-
   onClick(){
     this.onClickEvent.emit(this.pokemonLength);
   }

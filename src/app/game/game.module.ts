@@ -12,6 +12,8 @@ import { BoardComponent } from './board/board.component';
 import { ScoreComponent } from './score/score.component';
 import { StartScreenComponent } from './start-screen/start-screen.component';
 import { AboutComponent } from './about/about.component';
+import { PlayerProfileComponent } from './player-profile/player-profile.component';
+import { EndScreenComponent } from './end-screen/end-screen.component';
 
 
 
@@ -23,7 +25,9 @@ import { AboutComponent } from './about/about.component';
     BoardComponent,
     ScoreComponent,
     StartScreenComponent,
-    AboutComponent
+    AboutComponent,
+    PlayerProfileComponent,
+    EndScreenComponent
   ],
   imports: [
     CommonModule,

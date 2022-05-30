@@ -33,34 +33,32 @@ export class GameComponent implements OnInit {
   ngOnInit(): void {
     this.pokemonScreen = this.getRandomInt(1, 152);
   }
-
-  ngOnChanges(){
-  }
-  // funcion para generar numeros aleatorios
+  // metodo para generar numeros aleatorios
   getRandomInt(min: number, max: number): any {
     return Math.floor(Math.random() * (max - min)) + min;
   }
-  // funcion para generar las cartas
+  // metodo para generar las cartas
   getCards(params: GameParams): boolean{
     this.gameParams = params;
     this.matches = this.gameParams.cards;
     this.pokemonLength = this.gameParams.cards;
     return this.gameStarted = true;
   }
-  //funcion para reiniciar el juego
+  //metodo para reiniciar el juego
   restartGame(){
     this.restart += 1;
     this.matches = this.gameParams.cards
     this.movements = 0;
   }
-  //funcion para sumar movimientos
+  //metodo para sumar movimientos
   addMovement(movement: number){
     this.movements += movement;
-  }  
+  }
+  //metodo para restar matches
   addMatch(match: number){
     this.matches -= match;
   }
-  //funcion para terminar el juego
+  //metodo para terminar el juego
   gameEnd(){
     this.gameEnded = true;
     

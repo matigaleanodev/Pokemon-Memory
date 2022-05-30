@@ -1,6 +1,10 @@
 <div class="container-fluid">
-    <div class="grid board" 
-    [ngClass]="{'board12': gameParams.cards === 12, 'board10': gameParams.cards === 10, 'board8': this.gameParams.cards === 8}">
+    <div 
+        class="grid board" 
+        [ngClass]="{'board12': gameParams.cards === 12,
+                    'board10': gameParams.cards === 10,
+                    'board8': this.gameParams.cards === 8
+                    }">
         <app-card
             class="p-0"
             *ngFor="let pokemon of cardInfo"

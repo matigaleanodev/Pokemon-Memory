@@ -37,16 +37,16 @@ export class BoardComponent implements OnInit {
       this.restartGame();
     }
   }
-  // funcion para generar numeros aleatorios
+  // metodo para generar numeros aleatorios
   getRandomInt(min: number, max: number): any {
     return Math.floor(Math.random() * (max - min)) + min;
   }
-  // funcion para desordenar el array
+  // metodo para desordenar el array
   shuffle(array: number[]): number[] {
     array.sort(() => Math.random() - 0.5);
     return array;
   }
-  // funcion para generar informacion de las cartas
+  // metodo para generar informacion de las cartas
   getCardInfo(){
     let pokemonList: number[] = []
     for (let i = 0; i < this.pokemonLength; i++) {
@@ -61,14 +61,14 @@ export class BoardComponent implements OnInit {
       });
     }
   }
-  // funcion para generar las cartas
+  // metodo para generar las cartas
   getCards(pokemonLength: number): boolean{
     this.cardInfo = [];
     this.pokemonLength = pokemonLength;
     this.getCardInfo();
     return this.gameStarted = true;
   }
-  // funcion para obtener generacion de pokemon
+  // metodo para obtener generacion de pokemon
   getGeneration(generation: string){
     switch (generation) {
       case 'all':
@@ -92,13 +92,13 @@ export class BoardComponent implements OnInit {
       default:  return this.min = 1, this.max = 899;
     }
   }
-  // funcion para reiniciar el juego
+  // metodo para reiniciar el juego
   restartGame(){
       this.cardInfo = [];
       this.matches = 0;
       this.getCards(this.pokemonLength);
   }
-  // funcion para comparar las cartas
+  // metodo para comparar las cartas
   flipCard(index: number){
     this.cardInfo[index].state = 'flipped';
     this.flipAudio();
@@ -113,17 +113,14 @@ export class BoardComponent implements OnInit {
             matches += 1;
             this.cardInfo[this.flippedCards[0]].state = 'matched';
             this.flippedCards = [];
-  
           } else {
             this.cardInfo[this.flippedCards[0]].state = 'default';
             this.cardInfo[index].state = 'default';
             this.flippedCards = [];
           }
-          
           this.matchEvent.emit(matches);
       } , 600);
   }
-
   flipAudio(){
     let audio = new Audio();
     audio.src = "assets/audios/card-flip.wav";

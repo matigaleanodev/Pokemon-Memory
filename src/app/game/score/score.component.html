@@ -1,25 +1,30 @@
-<div class="d-flex row align-items-center justify-content-around score-bar">
+<section class="d-flex row align-items-center justify-content-around mx-md-2">
     <app-button
         class="col-10 p-2 mt-1"
         [pokemonLength]="12"
         [text]="this.gameStarted ? 'Reiniciar' : 'Iniciar'"
         (onClickEvent)="onClick()"                        
     ></app-button>
+    <app-player-profile
+        class="col-10 p-2 mt-1"
+        [text]="'Hola 👋🏼'"
+        [player]="this.player"
+    ></app-player-profile>
     <div class="col-10 p-2 mt-1 score">
         <p class="text-center pt-1 w-100">
             Tiempo
             <br>
-             {{ this.countdown}} Segundos
+            ⏱&nbsp;{{ this.countdown}} Segundos
         </p>
     </div>
-    <div class="col-6 p-2 mt-1 score">
+    <div class="col-10 p-2 mt-1 score">
         <p class="text-center pt-1 w-100">
             Movimientos
             <br>
-            <fa-icon [icon]="faHandPointer"></fa-icon>&nbsp;{{this.movements}}
+            🃏&nbsp;{{this.movements}}
         </p>
     </div>
-    <div class="col-4 p-2 mt-1 score">
+    <div class="col-10 p-2 mt-1 score">
         <p class="text-center pt-1 w-100">
             pokemones restantes
             <br>
@@ -27,6 +32,6 @@
         </p>
     </div>
     <app-about
-        class="d-flex justify-content-center col-4 p-2 mt-1"
+        class="col-10 p-2 mt-1 score"
     ></app-about>
-</div>
+</section>

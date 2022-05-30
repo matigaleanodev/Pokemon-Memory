@@ -23,7 +23,6 @@ export class ButtonComponent implements OnInit {
     this.onClickEvent.emit(this.pokemonLength);
     this.buttonAudio();
   }
-
   buttonAudio(){
     let audio = new Audio();
     audio.src = "assets/audios/enter.flac";
