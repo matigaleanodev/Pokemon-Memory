@@ -47,4 +47,11 @@ export class StartScreenComponent implements OnInit {
     let audio: any = document.getElementById('screenAudio')
     audio.volume = 0.2;
   }
+  getCanvas(event: Event) {
+    event.preventDefault();
+    let canvas: any = document.getElementById('feedback');
+    let ctx: any = canvas.getContext('2d');
+    ctx.fillStyle = '#fff';
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+  }
 }

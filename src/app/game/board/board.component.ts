@@ -52,6 +52,14 @@ export class BoardComponent implements OnInit {
     for (let i = 0; i < this.pokemonLength; i++) {
       pokemonList.push(this.getRandomInt(this.min, this.max));
     }
+    // generacion de array de numeros aleatorios y comprobacion de duplicados
+    while (this.checkDuplicates(pokemonList) && pokemonList.length < this.pokemonLength) {
+      pokemonList = this.removeDuplicates(pokemonList);
+      let i = this.pokemonLength - pokemonList.length;
+      for (let j = 0; j < i; j++) {
+        pokemonList.push(this.getRandomInt(this.min, this.max));
+      }
+    }
     pokemonList = pokemonList.concat(pokemonList);
     pokemonList = this.shuffle(pokemonList);
     for (let i in pokemonList) {
@@ -60,6 +68,14 @@ export class BoardComponent implements OnInit {
         state: 'default'
       });
     }
+  }
+  // metodo para comprobar si se repiten elementos en el array
+  checkDuplicates(array: number[]){
+    return array.some((a, b) => array.indexOf(a) != b);
+  }  
+  //metodo para eliminar elementos repetidos del array
+  removeDuplicates(array: number[]): number[] {
+    return array.filter((a, b) => array.indexOf(a) == b);
   }
   // metodo para generar las cartas
   getCards(pokemonLength: number): boolean{

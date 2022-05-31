@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ShareButtonsModule } from 'ngx-sharebuttons/buttons';
 
 
 import { GameComponent } from './game.component';
@@ -14,6 +15,7 @@ import { StartScreenComponent } from './start-screen/start-screen.component';
 import { AboutComponent } from './about/about.component';
 import { PlayerProfileComponent } from './player-profile/player-profile.component';
 import { EndScreenComponent } from './end-screen/end-screen.component';
+import { ShareButtonsComponent } from './share-buttons/share-buttons.component';
 
 
 
@@ -27,14 +29,16 @@ import { EndScreenComponent } from './end-screen/end-screen.component';
     StartScreenComponent,
     AboutComponent,
     PlayerProfileComponent,
-    EndScreenComponent
+    EndScreenComponent,
+    ShareButtonsComponent
   ],
   imports: [
     CommonModule,
     ReactiveFormsModule,
     FormsModule,
     FontAwesomeModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    ShareButtonsModule
   ],
   exports: [
     GameComponent
