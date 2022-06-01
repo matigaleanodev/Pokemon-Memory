@@ -8,10 +8,10 @@
         <div class="col-12" *ngIf="this.matches == 0">
             <app-player-profile
                 [player]="this.player"
-                [text]="'Gracias por jugar!'"
+                [text]="'Gracias por jugar'"
             ></app-player-profile>
             <p class="feedback-text">
-                Lograste {{ pokemonLength }} aciertos en {{ movements }} movimientos en menos de {{ time }} segundos
+                Lograste los {{ pokemonLength }} aciertos en {{ movements }} movimientos en menos de {{ time }} segundos
             </p>
         </div>
         <div class="col-12" *ngIf="this.matches != 0">

@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 
 import { GameParams } from './interface';
-
+import { CardsService } from './services/cards.service';
+import { GameplayService } from './services/gameplay.service';
 
 @Component({
   selector: 'app-game',
@@ -12,60 +13,41 @@ export class GameComponent implements OnInit {
 
   
   pokemonScreen: number = 0;
-  pokemonLength: number = 0;
 
-  gameStarted: boolean = false;
-  gameEnded: boolean = false;
-  restart: number = 0;
-  movements: number = 0;
-  matches: number = 12;
 
-  gameParams: GameParams = {
-    player: '',
-    cards: 8,
-    time: 60,
-    generation: 'all'
-  }
+  constructor(
+    public cardsService: CardsService,
+    public gameplayService: GameplayService
+  ) { }
   
-
-  constructor(  ) { }
-
   ngOnInit(): void {
-    this.pokemonScreen = this.getRandomInt(1, 152);
-  }
-  // metodo para generar numeros aleatorios
-  getRandomInt(min: number, max: number): any {
-    return Math.floor(Math.random() * (max - min)) + min;
+    this.pokemonScreen = this.cardsService.getRandomInt(1, 152);
   }
   // metodo para generar las cartas
   getCards(params: GameParams): boolean{
-    this.gameParams = params;
-    this.matches = this.gameParams.cards;
-    this.pokemonLength = this.gameParams.cards;
-    return this.gameStarted = true;
+    this.cardsService.gameParams = params;
+    this.gameplayService.matches = params.cards;
+    this.cardsService.pokemonLength = params.cards;
+    return this.gameplayService.gameStarted = true;
   }
   //metodo para reiniciar el juego
   restartGame(){
-    this.restart += 1;
-    this.gameEnded = false;
-    this.matches = this.gameParams.cards
-    this.movements = 0;
+    this.gameplayService.restart += 1;
+    this.gameplayService.gameEnded = false;
+    this.gameplayService.matches = this.gameplayService.cards
+    this.gameplayService.movements = 0;
   }
   //metodo para volver a la pantalla de inicio
   restartApp(){
-    this.gameStarted = false;
-    this.gameEnded = false;
+    this.gameplayService.gameStarted = false;
+    this.gameplayService.gameEnded = false;
   }  
   //metodo para sumar movimientos
   addMovement(movement: number){
-    this.movements += movement;
+    this.gameplayService.movements += movement;
   }
   //metodo para restar matches
   addMatch(match: number){
-    this.matches -= match;
-  }
-  //metodo para terminar el juego
-  gameEnd(){
-    this.gameEnded = true;
+    this.gameplayService.matches -= match;
   }
 }

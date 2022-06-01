@@ -2,6 +2,10 @@ import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 import { map, interval, takeWhile } from 'rxjs';
 import { faClock, faHandPointer, faStar } from '@fortawesome/free-solid-svg-icons';
 
+
+import { CardsService } from '../services/cards.service';
+import { GameplayService } from '../services/gameplay.service';
+
 @Component({
   selector: 'app-score',
   templateUrl: './score.component.html',
@@ -9,14 +13,7 @@ import { faClock, faHandPointer, faStar } from '@fortawesome/free-solid-svg-icon
 })
 export class ScoreComponent implements OnInit {
 
-  @Input() matches: number = 12;
-  @Input() movements: number = 0;
-  @Input() restart: number = 0;
   @Input() time: number = 60;
-  @Input() pokemonLength: number = 0;
-  @Input() gameStarted: boolean = false;
-  @Input() player: string = '';
-  @Output() gameEndedEvent = new EventEmitter();
   @Output() onClickEvent = new EventEmitter<number>();
   faClock = faClock;
   faHandPointer = faHandPointer;
@@ -24,7 +21,10 @@ export class ScoreComponent implements OnInit {
   countdown: number = 60
 
 
-  constructor() { }
+  constructor(
+    public cardsService: CardsService,
+    public gameplayService: GameplayService
+  ) { }
 
   ngOnInit(): void {
     this.countdown = this.time;
@@ -32,13 +32,17 @@ export class ScoreComponent implements OnInit {
       (countdown) => this.countdown = countdown
     );
   }
-  ngOnChanges() {
-    if (this.restart != 0) {
-      this.countdown = this.time;
+  ngOnChanges() {    
+    if (this.gameplayService.restart != 0) {
+      this.countdown = this.cardsService.gameParams.time;
     }
-    if (this.matches == 0 || this.countdown == 0) {
-      this.gameEndedEvent.emit();
+    if (this.gameplayService.matches === 0 || this.countdown == 0) {
+      this.gameplayService.gameEnded = true;
     }
+  }
+  restart(){
+    this.countdown = this.time;
+    this.gameplayService.restartGame();
   }
   getCountdown() {
     return interval(1000).pipe(

@@ -1,16 +1,12 @@
 <app-start-screen
-    *ngIf="!this.gameStarted"
+    *ngIf="!gameplayService.gameStarted"
     (startGameEvent)="getCards($event)"
     [pokemonScreen]="this.pokemonScreen"
 ></app-start-screen>
-<main class="container-fluid" *ngIf="this.gameStarted && !this.gameEnded">
+<main class="container-fluid" *ngIf="gameplayService.gameStarted && !gameplayService.gameEnded">
     <div class="row pt-2">
         <app-board 
             class="d-flex align-items-center justify-content-center col-12 col-md-9"
-            [pokemonLength]="this.pokemonLength"
-            [gameStarted]="this.gameStarted"
-            [restart]="this.restart"
-            [gameParams]="this.gameParams"
             (movementEvent)="addMovement($event)"
             (matchEvent)="addMatch($event)"
         ></app-board>
@@ -18,14 +14,7 @@
             <div class="row">
                 <div class="col d-flex">
                     <app-score
-                        [movements]="this.movements"
-                        [matches]="this.matches"
-                        [restart]="this.restart"
-                        [time]="this.gameParams.time"
-                        [player]="this.gameParams.player"
-                        [pokemonLength]="this.pokemonLength"
-                        [gameStarted]="this.gameStarted"
-                        (gameEndedEvent)="gameEnd()"
+                        [time]="cardsService.gameParams.time"
                         (onClickEvent)="restartGame()"
                     ></app-score>
                 </div>
@@ -34,13 +23,13 @@
     </div>
 </main>
 <app-end-screen
-    *ngIf="this.gameEnded"
-    [player]="this.gameParams.player"
-    [movements]="this.movements"
-    [matches]="this.matches"
-    [pokemonLength]="this.pokemonLength"
-    [time]="this.gameParams.time"
-    [restart]="this.restart"
+    *ngIf="gameplayService.gameEnded"
+    [player]="cardsService.gameParams.player"
+    [movements]="gameplayService.movements"
+    [matches]="gameplayService.matches"
+    [pokemonLength]="cardsService.pokemonLength"
+    [time]="cardsService.gameParams.time"
+    [restart]="gameplayService.restart"
     (onClickEvent)="restartGame()"
     (onRestartApp)="restartApp()"
 ></app-end-screen>

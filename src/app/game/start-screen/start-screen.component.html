@@ -1,5 +1,4 @@
 <section class="container section">
-    <audio autoplay id="screenAudio" src="assets/audios/title-screen.mp3"></audio>
     <div class="row text-center">
         <div class="col-12">
             <img 
@@ -35,7 +34,7 @@
                 aria-label="cards"                
             >
                 <option class="form-option" value="">Seleccionar Tablero</option>
-                <option class="form-option" *ngFor="let card of cards" [ngValue]="card.value">
+                <option class="form-option" *ngFor="let card of gameplayService.cards" [ngValue]="card.value">
                     {{ card.name }}
                 </option>
             </select>
@@ -47,7 +46,7 @@
                 aria-label="time"
             >
                 <option class="form-option" value="">Seleccionar Tiempo</option>
-                <option class="form-option" *ngFor="let time of times" [ngValue]="time">
+                <option class="form-option" *ngFor="let time of gameplayService.times" [ngValue]="time">
                     {{ time }}
                 </option>
             </select>
@@ -59,7 +58,7 @@
                 aria-label="generation"
             >
                 <option class="form-option" value="">Seleccionar Generacion</option>
-                <option class="form-option" *ngFor="let gen of generations" [ngValue]="gen">
+                <option class="form-option" *ngFor="let gen of gameplayService.generations" [ngValue]="gen">
                     {{ gen | titlecase }} Generation
                 </option>
             </select>
