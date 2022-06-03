@@ -1,4 +1,7 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+
+import { CardsService } from '../services/cards.service';
+import { GameplayService } from '../services/gameplay.service';
 
 @Component({
   selector: 'app-end-screen',
@@ -7,19 +10,19 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 })
 export class EndScreenComponent implements OnInit {
 
-  @Input() movements: number = 0;
-  @Input() matches: number = 0;
-  @Input() time: number = 0;
-  @Input() restart: number = 0;  
-  @Input() pokemonLength: number = 0;
-  @Input() player: string = "";
   @Output() onClickEvent = new EventEmitter<number>();
   @Output() onRestartApp = new EventEmitter();
 
 
-  constructor() { }
+  constructor(    
+    public cardsService: CardsService,
+    public gameplay: GameplayService
+  ) { }
 
   ngOnInit(): void {
   }
 
+  restart(){
+    this.gameplay.restartGame();
+  }
 }

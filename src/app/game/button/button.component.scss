@@ -6,7 +6,7 @@
     height: 2.5rem;
     border: 3px solid $main-color;
     border-radius: 6px;
-    box-shadow: $dark-green 0 0 10px;
+    box-shadow: 0px 5px 15px $dark-green;
     transition: .5s;
     position: relative;
     overflow: hidden;
@@ -51,7 +51,7 @@
         text-transform: uppercase;
         font-weight: bold;
         font-size: 17px;
-        text-shadow: $dark-green 0 0 5px;
+        text-shadow: 0px 5px 15px $dark-green;
         color: $main-color;
         transition: all .5s;
         &:hover {

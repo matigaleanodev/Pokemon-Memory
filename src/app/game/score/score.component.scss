@@ -3,7 +3,7 @@
 .score{
   border: 3px solid $main-color;
   border-radius: 6px;
-  box-shadow: $dark-green 0 0 15px;
+  box-shadow: 0px 5px 15px $dark-green;
   padding-bottom: 0;
   margin-bottom: 0;
   
@@ -12,7 +12,7 @@
   font-weight: bold;
   font-size: 1rem;
   text-transform: uppercase;
-  text-shadow: 2px 2px 5px $dark-green;
+  text-shadow: 0px 5px 15px $dark-green;
 }
 .pokeball {
   height: 1.5rem;

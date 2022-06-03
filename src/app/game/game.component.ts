@@ -17,7 +17,7 @@ export class GameComponent implements OnInit {
 
   constructor(
     public cardsService: CardsService,
-    public gameplayService: GameplayService
+    public gameplay: GameplayService
   ) { }
   
   ngOnInit(): void {
@@ -26,28 +26,15 @@ export class GameComponent implements OnInit {
   // metodo para generar las cartas
   getCards(params: GameParams): boolean{
     this.cardsService.gameParams = params;
-    this.gameplayService.matches = params.cards;
+    this.gameplay.matches = params.cards;
     this.cardsService.pokemonLength = params.cards;
-    return this.gameplayService.gameStarted = true;
+    return this.gameplay.gameStarted = true;
   }
   //metodo para reiniciar el juego
   restartGame(){
-    this.gameplayService.restart += 1;
-    this.gameplayService.gameEnded = false;
-    this.gameplayService.matches = this.gameplayService.cards
-    this.gameplayService.movements = 0;
+    this.gameplay.gameEnded = false;
+    this.gameplay.matches = this.gameplay.cards
+    this.gameplay.movements = 0;
   }
-  //metodo para volver a la pantalla de inicio
-  restartApp(){
-    this.gameplayService.gameStarted = false;
-    this.gameplayService.gameEnded = false;
-  }  
-  //metodo para sumar movimientos
-  addMovement(movement: number){
-    this.gameplayService.movements += movement;
-  }
-  //metodo para restar matches
-  addMatch(match: number){
-    this.gameplayService.matches -= match;
-  }
+  
 }

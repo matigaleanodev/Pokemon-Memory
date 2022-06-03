@@ -1,4 +1,4 @@
-
+@import "src/styles";
 *{
     transition: all 0.5s;
 }
@@ -21,6 +21,9 @@
         cursor: pointer;
         animation: gameStart 3s;
     }
+}
+.card {
+    box-shadow: 0px 5px 15px $dark-green;
 }
 .card-face{
     border: 3px solid #fff;

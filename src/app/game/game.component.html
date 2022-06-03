@@ -1,35 +1,22 @@
 <app-start-screen
-    *ngIf="!gameplayService.gameStarted"
+    *ngIf="!gameplay.gameStarted"
     (startGameEvent)="getCards($event)"
     [pokemonScreen]="this.pokemonScreen"
 ></app-start-screen>
-<main class="container-fluid" *ngIf="gameplayService.gameStarted && !gameplayService.gameEnded">
+<main class="container-fluid" *ngIf="gameplay.gameStarted && !gameplay.gameEnded">
     <div class="row pt-2">
         <app-board 
             class="d-flex align-items-center justify-content-center col-12 col-md-9"
-            (movementEvent)="addMovement($event)"
-            (matchEvent)="addMatch($event)"
         ></app-board>
         <div class="col-12 col-md-3">
             <div class="row">
                 <div class="col d-flex">
-                    <app-score
-                        [time]="cardsService.gameParams.time"
-                        (onClickEvent)="restartGame()"
-                    ></app-score>
+                    <app-score></app-score>
                 </div>
             </div>            
         </div>
     </div>
 </main>
 <app-end-screen
-    *ngIf="gameplayService.gameEnded"
-    [player]="cardsService.gameParams.player"
-    [movements]="gameplayService.movements"
-    [matches]="gameplayService.matches"
-    [pokemonLength]="cardsService.pokemonLength"
-    [time]="cardsService.gameParams.time"
-    [restart]="gameplayService.restart"
-    (onClickEvent)="restartGame()"
-    (onRestartApp)="restartApp()"
+    *ngIf="gameplay.gameEnded"
 ></app-end-screen>

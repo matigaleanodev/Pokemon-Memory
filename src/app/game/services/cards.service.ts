@@ -14,7 +14,6 @@ export class CardsService {
   gameParams: GameParams ={
     player: '',
     cards: 8,
-    time: 45,
     generation: 'all'
   };
 

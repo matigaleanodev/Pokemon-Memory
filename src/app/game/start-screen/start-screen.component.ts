@@ -21,13 +21,12 @@ export class StartScreenComponent implements OnInit {
 
   constructor(
     public cardsService: CardsService,
-    public gameplayService: GameplayService,
+    public gameplay: GameplayService,
     private formBuilder: FormBuilder
   ) {
     this.form = this.formBuilder.group({
       player: ['', [Validators.required]],
       cards: ['', [Validators.required]],
-      time: ['', [Validators.required]],
       generation: ['', [Validators.required]]
     });
   }
@@ -44,13 +43,8 @@ export class StartScreenComponent implements OnInit {
       alert('Completa todos los campos');
     }
   }
-  getCanvas(event: Event) {
-    event.preventDefault();
-    let canvas: any = document.getElementById('feedback');
-    let ctx: any = canvas.getContext('2d');
-    ctx.fillStyle = '#fff';
-    ctx.fillRect(0, 0, canvas.width, canvas.height);
-  }
+
+  
   startAudio(){
     let audio = new Audio();
     audio.src = "assets/audios/title-screen.mp3";

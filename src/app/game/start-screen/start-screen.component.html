@@ -34,20 +34,8 @@
                 aria-label="cards"                
             >
                 <option class="form-option" value="">Seleccionar Tablero</option>
-                <option class="form-option" *ngFor="let card of gameplayService.cards" [ngValue]="card.value">
+                <option class="form-option" *ngFor="let card of gameplay.cards" [ngValue]="card.value">
                     {{ card.name }}
-                </option>
-            </select>
-        </div>
-        <div class="row my-1">
-            <select
-                class="form-select col-12 col-md-6 mt-2 pt-1 form-item"
-                formControlName="time"
-                aria-label="time"
-            >
-                <option class="form-option" value="">Seleccionar Tiempo</option>
-                <option class="form-option" *ngFor="let time of gameplayService.times" [ngValue]="time">
-                    {{ time }}
                 </option>
             </select>
         </div>
@@ -58,7 +46,7 @@
                 aria-label="generation"
             >
                 <option class="form-option" value="">Seleccionar Generacion</option>
-                <option class="form-option" *ngFor="let gen of gameplayService.generations" [ngValue]="gen">
+                <option class="form-option" *ngFor="let gen of gameplay.generations" [ngValue]="gen">
                     {{ gen | titlecase }} Generation
                 </option>
             </select>

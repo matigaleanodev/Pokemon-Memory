@@ -12,23 +12,16 @@
     ></app-player-profile>
     <div class="col-10 p-2 mt-1 score">
         <p class="text-center pt-1 w-100">
-            Tiempo
-            <br>
-            ⏱&nbsp;{{ this.countdown}} Segundos
-        </p>
-    </div>
-    <div class="col-10 p-2 mt-1 score">
-        <p class="text-center pt-1 w-100">
             Movimientos
             <br>
-            🃏&nbsp;{{gameplayService.movements}}
+            🃏&nbsp;{{gameplay.movements}}
         </p>
     </div>
     <div class="col-10 p-2 mt-1 score">
         <p class="text-center pt-1 w-100">
             pokemones restantes
             <br>
-            <img src="assets/icons/pokeball.svg" alt="pokeball" class="pokeball"> &nbsp;{{gameplayService.matches}}
+            <img src="assets/icons/pokeball.svg" alt="pokeball" class="pokeball"> &nbsp;{{gameplay.matches}}
         </p>
     </div>
     <app-about

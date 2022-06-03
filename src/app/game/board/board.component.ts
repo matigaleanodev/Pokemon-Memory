@@ -1,6 +1,5 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
-import { CardInfo, GameParams } from '../interface';
 import { CardsService } from '../services/cards.service';
 import { GameplayService } from '../services/gameplay.service';
 
@@ -14,18 +13,16 @@ export class BoardComponent implements OnInit {
   
 
   flippedCards: number[] = [];
-  @Output() matchEvent = new EventEmitter();
-  @Output() movementEvent = new EventEmitter();
 
   
   constructor(
     public cardsService: CardsService,
-    public gameplayService: GameplayService
+    public gameplay: GameplayService
   ) { }
   
   ngOnInit(): void {
-    this.gameplayService.getGeneration(this.cardsService.gameParams.generation);
-    this.gameplayService.getCards(this.cardsService.pokemonLength);
+    this.gameplay.getGeneration(this.cardsService.gameParams.generation);
+    this.gameplay.getCards(this.cardsService.pokemonLength);
   }
   // metodo para comparar las cartas
   flipCard(index: number){
@@ -41,14 +38,14 @@ export class BoardComponent implements OnInit {
             matches += 1;
             this.cardsService.cardInfo[this.flippedCards[0]].state = 'matched';
             this.flippedCards = [];
-            this.movementEvent.emit(1);
+            this.gameplay.addMovement(1);
           } else {
             this.cardsService.cardInfo[this.flippedCards[0]].state = 'default';
             this.cardsService.cardInfo[index].state = 'default';
             this.flippedCards = [];
-            this.movementEvent.emit(1);
+            this.gameplay.addMovement(1);
           }
-          this.matchEvent.emit(matches);
+          this.gameplay.addMatch(matches);
       } , 600);
   }
   flipAudio(){

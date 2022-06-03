@@ -9,7 +9,7 @@ import { faGithub } from '@fortawesome/free-brands-svg-icons';
 export class AboutComponent implements OnInit {
 
   faGithub = faGithub;
-  version: string = 'v1.0.9';
+  version: string = 'v1.0.10';
 
   constructor() { }
 

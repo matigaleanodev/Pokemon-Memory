@@ -5,28 +5,25 @@
         </div>
     </div>
     <div class="row feedback" id="feedback">
-        <div class="col-12" *ngIf="this.matches == 0">
+        <div class="col-12" *ngIf="gameplay.matches == 0">
             <app-player-profile
-                [player]="this.player"
+                [player]="cardsService.gameParams.player"
                 [text]="'Gracias por jugar'"
             ></app-player-profile>
             <p class="feedback-text">
-                Lograste los {{ pokemonLength }} aciertos en {{ movements }} movimientos en menos de {{ time }} segundos
+                Lograste los {{ cardsService.pokemonLength }} aciertos en {{ gameplay.movements }} movimientos.
             </p>
-        </div>
-        <div class="col-12" *ngIf="this.matches != 0">
-            <h2 class="text-center">Intentalo de nuevo!</h2>
         </div>
     </div>
     <div class="row mt-2 end-button">
         <app-button
-            [text]="'Play Again'"
-            (click)="onClickEvent.emit(this.pokemonLength)"            
+            [text]="'Reiniciar'"
+            (click)="restart()"            
             ></app-button>
     </div>
     <div class="row mt-2 end-button">
         <app-button
-            [text]="'Home Screen'"
+            [text]="'Volver a Inicio'"
             (click)="onRestartApp.emit()"
         ></app-button>
     </div>

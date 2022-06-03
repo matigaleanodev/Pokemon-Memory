@@ -8,12 +8,11 @@ import { CardsService } from '../services/cards.service';
 export class GameplayService {
 
   cards: any = [{value:8, name:'4x4'}, {value:10, name:'4x5'}, {value:12, name:'4x6'}];
-  times: any = [45, 60, 75];
+  times: any = [30, 45, 60];
   generations: any = ['first', 'second', 'third', 'fourth', 'fifth', 'sixth', 'seventh', 'eighth', 'all'];
 
   gameStarted: boolean = false;
   gameEnded: boolean = false;
-  restart: number = 0;
   movements: number = 0;
   matches: number = 12;
 
@@ -58,10 +57,26 @@ export class GameplayService {
   restartGame(){
     this.cardsService.cardInfo = [];
     this.getCards(this.cardsService.pokemonLength);
-    this.restart += 1;
     this.gameEnded = false;
     this.matches = this.cardsService.gameParams.cards;
     this.movements = 0;
+  }  
+  //metodo para sumar movimientos
+  addMovement(movement: number){
+    this.movements += movement;
+  }
+  //metodo para restar matches
+  addMatch(match: number){
+    if (this.matches === 1) {
+      this.gameEnded = true;
+      this.matches -= match;
+    } else {
+      this.matches -= match;
+    }
+  }
+  endGame(){
+    this.gameEnded = true;
   }
   
 }
+
