@@ -21,8 +21,4 @@ export class EndScreenComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
-  restart(){
-    this.gameplay.restartGame();
-  }
 }

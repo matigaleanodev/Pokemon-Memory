@@ -1,6 +1,6 @@
 <section class="container vh-100 pt-2 pt-md-5">
     <div class="row">
-        <div class="col-12">
+        <div class="col-12 mt-2">
             <h1 class="text-center title">Game Over</h1>
         </div>
     </div>
@@ -18,13 +18,13 @@
     <div class="row mt-2 end-button">
         <app-button
             [text]="'Reiniciar'"
-            (click)="restart()"            
+            (click)="this.gameplay.restartGame()"            
             ></app-button>
     </div>
     <div class="row mt-2 end-button">
         <app-button
             [text]="'Volver a Inicio'"
-            (click)="onRestartApp.emit()"
+            (click)="this.gameplay.restartApp()"
         ></app-button>
     </div>
 </section>

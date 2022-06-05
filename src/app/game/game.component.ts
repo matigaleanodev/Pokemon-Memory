@@ -30,11 +30,4 @@ export class GameComponent implements OnInit {
     this.cardsService.pokemonLength = params.cards;
     return this.gameplay.gameStarted = true;
   }
-  //metodo para reiniciar el juego
-  restartGame(){
-    this.gameplay.gameEnded = false;
-    this.gameplay.matches = this.gameplay.cards
-    this.gameplay.movements = 0;
-  }
-  
 }

@@ -60,7 +60,13 @@ export class GameplayService {
     this.gameEnded = false;
     this.matches = this.cardsService.gameParams.cards;
     this.movements = 0;
-  }  
+  }
+  restartApp(){
+    this.gameEnded = false;
+    this.gameStarted = false;
+    this.movements = 0;
+    this.matches = 12;
+  }
   //metodo para sumar movimientos
   addMovement(movement: number){
     this.movements += movement;
