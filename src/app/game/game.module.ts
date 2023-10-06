@@ -3,8 +3,6 @@ import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { ShareButtonsModule } from 'ngx-sharebuttons/buttons';
-
 
 import { GameComponent } from './game.component';
 import { CardComponent } from './card/card.component';
@@ -15,9 +13,6 @@ import { StartScreenComponent } from './start-screen/start-screen.component';
 import { AboutComponent } from './about/about.component';
 import { PlayerProfileComponent } from './player-profile/player-profile.component';
 import { EndScreenComponent } from './end-screen/end-screen.component';
-import { ShareButtonsComponent } from './share-buttons/share-buttons.component';
-
-
 
 @NgModule({
   declarations: [
@@ -30,7 +25,6 @@ import { ShareButtonsComponent } from './share-buttons/share-buttons.component';
     AboutComponent,
     PlayerProfileComponent,
     EndScreenComponent,
-    ShareButtonsComponent
   ],
   imports: [
     CommonModule,
@@ -38,10 +32,7 @@ import { ShareButtonsComponent } from './share-buttons/share-buttons.component';
     FormsModule,
     FontAwesomeModule,
     BrowserAnimationsModule,
-    ShareButtonsModule
   ],
-  exports: [
-    GameComponent
-  ]
+  exports: [GameComponent],
 })
-export class GameModule { }
+export class GameModule {}

@@ -4,16 +4,13 @@ import { faGithub } from '@fortawesome/free-brands-svg-icons';
 @Component({
   selector: 'app-about',
   templateUrl: './about.component.html',
-  styleUrls: ['./about.component.scss']
+  styleUrls: ['./about.component.scss'],
 })
 export class AboutComponent implements OnInit {
-
   faGithub = faGithub;
-  version: string = 'v1.0.10';
+  version: string = 'v1.2.0';
 
-  constructor() { }
+  constructor() {}
 
-  ngOnInit(): void {
-  }
-
+  ngOnInit(): void {}
 }
