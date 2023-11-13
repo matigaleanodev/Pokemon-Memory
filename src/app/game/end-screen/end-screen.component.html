@@ -5,7 +5,8 @@
         </div>
     </div>
     <div class="row feedback" id="feedback">
-        <div class="col-12" *ngIf="gameplay.matches == 0">
+        @if (gameplay.matches == 0) {
+<div class="col-12">
             <app-player-profile
                 [player]="cardsService.gameParams.player"
                 [text]="'Gracias por jugar'"
@@ -14,6 +15,7 @@
                 Lograste los {{ cardsService.pokemonLength }} aciertos en {{ gameplay.movements }} movimientos.
             </p>
         </div>
+}
     </div>
     <div class="row mt-2 end-button">
         <app-button

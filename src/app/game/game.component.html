@@ -1,9 +1,12 @@
+@if (!gameplay.gameStarted) {
 <app-start-screen
-    *ngIf="!gameplay.gameStarted"
+   
     (startGameEvent)="getCards($event)"
     [pokemonScreen]="this.pokemonScreen"
 ></app-start-screen>
-<main class="container-fluid" *ngIf="gameplay.gameStarted && !gameplay.gameEnded">
+}
+@if (gameplay.gameStarted && !gameplay.gameEnded) {
+<main class="container-fluid">
     <div class="row pt-2">
         <app-board 
             class="d-flex align-items-center justify-content-center col-12 col-md-9"
@@ -17,6 +20,9 @@
         </div>
     </div>
 </main>
+}
+@if (gameplay.gameEnded) {
 <app-end-screen
-    *ngIf="gameplay.gameEnded"
+   
 ></app-end-screen>
+}

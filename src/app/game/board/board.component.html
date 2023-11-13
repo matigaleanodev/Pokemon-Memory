@@ -5,13 +5,15 @@
                     'board10': cardsService.gameParams.cards === 10,
                     'board8': cardsService.gameParams.cards === 8
                     }">
-        <app-card
+        @for (pokemon of cardsService.cardInfo; track pokemon) {
+  <app-card
             class="p-0"
-            *ngFor="let pokemon of cardsService.cardInfo"
+           
             [pokemon]="pokemon.id"
             [state]="pokemon.state"
             [id]="cardsService.cardInfo.indexOf(pokemon)"
             (flip)="flipCard($event)"
-        ></app-card>        
+        ></app-card>
+}        
     </div>
 </div>

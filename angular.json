@@ -97,19 +97,19 @@
 				"serve": {
 					"builder": "@angular-devkit/build-angular:dev-server",
 					"configurations": {
-						"production": {
-							"browserTarget": "PokemonMemory:build:production"
+            "production": {
+              "buildTarget": "PokemonMemory:build:production"
 						},
-						"development": {
-							"browserTarget": "PokemonMemory:build:development"
+            "development": {
+              "buildTarget": "PokemonMemory:build:development"
 						}
 					},
 					"defaultConfiguration": "development"
 				},
 				"extract-i18n": {
 					"builder": "@angular-devkit/build-angular:extract-i18n",
-					"options": {
-						"browserTarget": "PokemonMemory:build"
+          "options": {
+            "buildTarget": "PokemonMemory:build"
 					}
 				},
 				"test": {

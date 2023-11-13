@@ -34,9 +34,11 @@
                 aria-label="cards"                
             >
                 <option class="form-option" value="">Seleccionar Tablero</option>
-                <option class="form-option" *ngFor="let card of gameplay.cards" [ngValue]="card.value">
+                @for (card of gameplay.cards; track card) {
+  <option class="form-option" [ngValue]="card.value">
                     {{ card.name }}
                 </option>
+}
             </select>
         </div>
         <div class="row my-1">
@@ -46,9 +48,11 @@
                 aria-label="generation"
             >
                 <option class="form-option" value="">Seleccionar Generacion</option>
-                <option class="form-option" *ngFor="let gen of gameplay.generations" [ngValue]="gen">
+                @for (gen of gameplay.generations; track gen) {
+  <option class="form-option" [ngValue]="gen">
                     {{ gen | titlecase }} Generation
                 </option>
+}
             </select>
         </div>
         <div class="row my-1">
