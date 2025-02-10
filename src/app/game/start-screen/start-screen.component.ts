@@ -6,9 +6,10 @@ import { CardsService } from '../services/cards.service';
 import { GameplayService } from '../services/gameplay.service';
 
 @Component({
-  selector: 'app-start-screen',
-  templateUrl: './start-screen.component.html',
-  styleUrls: ['./start-screen.component.scss']
+    selector: 'app-start-screen',
+    templateUrl: './start-screen.component.html',
+    styleUrls: ['./start-screen.component.scss'],
+    standalone: false
 })
 export class StartScreenComponent implements OnInit {
 

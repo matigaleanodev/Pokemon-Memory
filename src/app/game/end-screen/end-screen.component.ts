@@ -4,9 +4,10 @@ import { CardsService } from '../services/cards.service';
 import { GameplayService } from '../services/gameplay.service';
 
 @Component({
-  selector: 'app-end-screen',
-  templateUrl: './end-screen.component.html',
-  styleUrls: ['./end-screen.component.scss']
+    selector: 'app-end-screen',
+    templateUrl: './end-screen.component.html',
+    styleUrls: ['./end-screen.component.scss'],
+    standalone: false
 })
 export class EndScreenComponent implements OnInit {
 

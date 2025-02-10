@@ -5,9 +5,10 @@ import { GameplayService } from '../services/gameplay.service';
 
 
 @Component({
-  selector: 'app-board',
-  templateUrl: './board.component.html',
-  styleUrls: ['./board.component.scss']
+    selector: 'app-board',
+    templateUrl: './board.component.html',
+    styleUrls: ['./board.component.scss'],
+    standalone: false
 })
 export class BoardComponent implements OnInit {
   
