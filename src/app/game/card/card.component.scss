@@ -1,61 +1,69 @@
 @import "src/styles";
-*{
-    transition: all 0.5s;
+* {
+  transition: all 0.5s;
 }
 @media (max-width: 767px) {
-    .card {
-        height: 80%;
-        width: 75%;
-        transform-style: preserve-3d;
-        position: relative;
-        cursor: pointer;
-        animation: gameStart 3s;
-    }
+  .card {
+    height: 80%;
+    width: 75%;
+    transform-style: preserve-3d;
+    position: relative;
+    cursor: pointer;
+    animation: gameStart 3s;
+  }
 }
 @media (min-width: 768px) {
-    .card {
-        height: 95%;
-        width: 60%;
-        transform-style: preserve-3d;
-        position: relative;
-        cursor: pointer;
-        animation: gameStart 3s;
-    }
+  .card {
+    height: 95%;
+    width: 60%;
+    transform-style: preserve-3d;
+    position: relative;
+    cursor: pointer;
+    animation: gameStart 3s;
+  }
 }
 .card {
-    box-shadow: 0px 5px 15px $dark-green;
+  box-shadow: 0px 5px 15px $dark-green;
 }
-.card-face{
-    border: 3px solid #fff;
-    position: absolute;
-    backface-visibility: hidden;
-    box-shadow: var(--dark-green) 0 0 10px;    
+.card-face {
+  border: 3px solid #fff;
+  position: absolute;
+  backface-visibility: hidden;
+  box-shadow: var(--dark-green) 0 0 10px;
 }
 .front {
-    background: rgb(255,192,0);
-    background: radial-gradient(circle, rgba(255,192,0,1) 0%,
-                                        rgba(235,24,14,1) 50%, 
-                                        rgba(110,0,0,1) 100%);
+  background: rgb(255, 192, 0);
+  background: radial-gradient(
+    circle,
+    rgba(255, 192, 0, 1) 0%,
+    rgba(235, 24, 14, 1) 50%,
+    rgba(110, 0, 0, 1) 100%
+  );
 }
 .back {
-    transform: rotateY(180deg);
-    background: rgb(0,254,255);
-    background: radial-gradient(circle, rgba(0,254,255,1) 0%, 
-                                        rgba(28,14,235,1) 50%, 
-                                        rgba(0,8,110,1) 100%);
+  transform: rotateY(180deg);
+  background: rgb(0, 254, 255);
+  background: radial-gradient(
+    circle,
+    rgba(0, 254, 255, 1) 0%,
+    rgba(28, 14, 235, 1) 50%,
+    rgba(0, 8, 110, 1) 100%
+  );
 }
 .flipped {
-    transform: rotateY(180deg);
+  transform: rotateY(180deg);
 }
 .matched {
-    opacity: 0;
+  opacity: 0;
 }
 
 @keyframes gameStart {
-    20%,90%{
-        transform: rotateY(180deg);
-    }
-    0%,100%{
-        transform: rotateY(0deg);
-    }
+  20%,
+  90% {
+    transform: rotateY(180deg);
+  }
+  0%,
+  100% {
+    transform: rotateY(0deg);
+  }
 }
